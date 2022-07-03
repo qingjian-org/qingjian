@@ -18,10 +18,10 @@ class _MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-            child: Text('First: $count', style: TextStyle(fontSize: 30))),
+            child: Text('First: $count', style: const TextStyle(fontSize: 30))),
         floatingActionButton: FloatingActionButton(
           onPressed: add,
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ));
   }
 }

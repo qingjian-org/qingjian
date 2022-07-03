@@ -5,15 +5,14 @@ import 'product.dart';
 import 'my.dart';
 import 'community.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Welcome to Flutter',
-      theme: new ThemeData(primaryColor: Colors.blue),
-      home: new MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
@@ -25,12 +24,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final items = [
-    BottomNavigationBarItem(icon: Icon(Icons.color_lens), label: '产品柜'),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(icon: Icon(Icons.color_lens), label: '产品柜'),
+    const BottomNavigationBarItem(
         icon: Icon(Icons.add_photo_alternate), label: '美妆柜'),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
         icon: Icon(Icons.connect_without_contact), label: '社区'),
-    BottomNavigationBarItem(icon: Icon(Icons.account_box), label: '我的')
+    const BottomNavigationBarItem(icon: Icon(Icons.account_box), label: '我的')
   ];
 
   final bodyList = [ProductPage(), MakeUpPage(), CommunityPage(), MyPage()];

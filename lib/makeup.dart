@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 final List<String> _suggestions = <String>['第一天', '第二天', '第三天', '第四天'];
-final Set<String> _saved = new Set<String>();
-final TextStyle _biggerFont = const TextStyle(fontSize: 18.0);
+final Set<String> _saved = <String>{};
+const TextStyle _biggerFont = TextStyle(fontSize: 18.0);
 
 class _TabData {
   final Widget tab;
@@ -11,9 +11,11 @@ class _TabData {
 }
 
 final _tabDataList = <_TabData>[
-  _TabData(tab: Text('美妆日志'), body: DiaryPage()),
-  _TabData(tab: Text('收藏'), body: FaveritePage())
+  _TabData(tab: const Text('美妆日志'), body: DiaryPage()),
+  _TabData(tab: const Text('收藏'), body: FaveritePage())
 ];
+final tabBarList = _tabDataList.map((item) => item.tab).toList();
+final tabBarViewList = _tabDataList.map((item) => item.body).toList();
 
 class MakeUpPage extends StatefulWidget {
   @override
@@ -21,9 +23,6 @@ class MakeUpPage extends StatefulWidget {
 }
 
 class _MakeUpPageState extends State<MakeUpPage> {
-  final tabBarList = _tabDataList.map((item) => item.tab).toList();
-  final tabBarViewList = _tabDataList.map((item) => item.body).toList();
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -33,7 +32,7 @@ class _MakeUpPageState extends State<MakeUpPage> {
             Container(
               width: double.infinity,
               height: 80,
-              padding: EdgeInsets.fromLTRB(20, 24, 0, 0),
+              padding: const EdgeInsets.fromLTRB(20, 24, 0, 0),
               alignment: Alignment.centerLeft,
               color: Colors.black,
               child: TabBar(
@@ -41,9 +40,9 @@ class _MakeUpPageState extends State<MakeUpPage> {
                   indicatorColor: Colors.red,
                   indicatorSize: TabBarIndicatorSize.label,
                   unselectedLabelColor: Colors.white,
-                  unselectedLabelStyle: TextStyle(fontSize: 18),
+                  unselectedLabelStyle: const TextStyle(fontSize: 18),
                   labelColor: Colors.red,
-                  labelStyle: TextStyle(fontSize: 20),
+                  labelStyle: const TextStyle(fontSize: 20),
                   tabs: tabBarList),
             ),
             Expanded(
@@ -57,7 +56,7 @@ class _MakeUpPageState extends State<MakeUpPage> {
 
 class DiaryPage extends StatefulWidget {
   @override
-  DiaryPageState createState() => new DiaryPageState();
+  DiaryPageState createState() => DiaryPageState();
 }
 
 class DiaryPageState extends State<DiaryPage> {
@@ -65,12 +64,12 @@ class DiaryPageState extends State<DiaryPage> {
   Widget build(BuildContext context) {
     final Iterable<ListTile> tiles = _suggestions.map((String text) {
       final bool alreadySaved = _saved.contains(text);
-      return new ListTile(
-          title: new Text(
+      return ListTile(
+          title: Text(
             text,
             style: _biggerFont,
           ),
-          trailing: new Icon(
+          trailing: Icon(
             alreadySaved ? Icons.favorite : Icons.favorite_border,
             color: alreadySaved ? Colors.red : null,
           ),
@@ -84,8 +83,8 @@ class DiaryPageState extends State<DiaryPage> {
             });
           });
     });
-    return new Scaffold(
-        body: new ListView(
+    return Scaffold(
+        body: ListView(
       children: ListTile.divideTiles(
         context: context,
         tiles: tiles,
@@ -96,30 +95,28 @@ class DiaryPageState extends State<DiaryPage> {
 
 class FaveritePage extends StatefulWidget {
   @override
-  FaveritePageState createState() => new FaveritePageState();
+  FaveritePageState createState() => FaveritePageState();
 }
 
 class FaveritePageState extends State<FaveritePage> {
   @override
   Widget build(BuildContext context) {
-    final Iterable<ListTile> tiles = _saved.map((String text) {
-      return new ListTile(
-        title: new Text(
+    Iterable<ListTile> tiles = _saved.map((String text) {
+      return ListTile(
+        title: Text(
           text,
           style: _biggerFont,
         ),
       );
     });
-    final List<Widget> divided = ListTile.divideTiles(
+
+    List<Widget> divided = ListTile.divideTiles(
       context: context,
       tiles: tiles,
     ).toList();
 
-    return new Scaffold(
-      // appBar: new AppBar(
-      //   title: const Text('Saved Suggestions'),
-      // ),
-      body: new ListView(
+    return Scaffold(
+      body: ListView(
         children: divided,
       ),
     );
