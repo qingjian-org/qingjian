@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-final List<String> _suggestions = <String>['第一天', '第二天', '第三天', '第四天'];
+final List<String> _suggestions = <String>[
+  '第一天',
+  '第二天',
+  '第三天',
+  '第四天',
+];
 final Set<String> _saved = <String>{};
 const TextStyle _biggerFont = TextStyle(fontSize: 18.0);
 
