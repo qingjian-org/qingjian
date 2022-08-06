@@ -6,7 +6,7 @@ import 'my.dart';
 import 'community.dart';
 
 void main() => runApp(MyApp());
-
+//这是一个注释
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
