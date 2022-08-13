@@ -7,6 +7,8 @@ import 'community.dart';
 
 void main() => runApp(MyApp());
 
+//这是一个注释
+//这是第三个注释
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
         icon: Icon(Icons.connect_without_contact), label: '社区'),
     const BottomNavigationBarItem(icon: Icon(Icons.account_box), label: '我的')
   ];
-
+// 第二行注释
   final bodyList = [ProductPage(), MakeUpPage(), CommunityPage(), MyPage()];
 
   int currentIndex = 0;
