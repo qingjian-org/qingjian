@@ -4,6 +4,7 @@ import 'makeup.dart';
 import 'product.dart';
 import 'my.dart';
 import 'community.dart';
+import 'product_info.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,7 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
     const BottomNavigationBarItem(icon: Icon(Icons.account_box), label: '我的')
   ];
 // 第二行注释
-  final bodyList = [ProductPage(), MakeUpPage(), CommunityPage(), MyPage()];
+  final bodyList = [
+    ProductPage(),
+    const ProductInfoPage(restorationId: 'main'),
+    CommunityPage(),
+    MyPage()
+  ];
 
   int currentIndex = 0;
 
