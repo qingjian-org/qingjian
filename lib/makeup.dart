@@ -15,11 +15,14 @@ class _TabData {
   _TabData({required this.tab, required this.body});
 }
 
+//顶部导航栏
 final _tabDataList = <_TabData>[
   _TabData(tab: const Text('美妆日志'), body: DiaryPage()),
   _TabData(tab: const Text('收藏'), body: FaveritePage())
 ];
+//定义顶部导航栏列表
 final tabBarList = _tabDataList.map((item) => item.tab).toList();
+//定义页面
 final tabBarViewList = _tabDataList.map((item) => item.body).toList();
 
 class MakeUpPage extends StatefulWidget {
@@ -64,6 +67,7 @@ class DiaryPage extends StatefulWidget {
   DiaryPageState createState() => DiaryPageState();
 }
 
+//页面编辑
 class DiaryPageState extends State<DiaryPage> {
   @override
   Widget build(BuildContext context) {
