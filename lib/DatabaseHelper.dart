@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'Products.dart';
@@ -10,6 +12,9 @@ class DatabaseHelper {
   static final columnBrand = 'brand'; //品牌属性
   static final columnProduct_Name = 'product_name'; //产品名属性
   static final columnProduct_Style = 'product_style'; //产品类型属性
+  static final columnProduceDate = 'produceDate'; //生产日期
+  static final columnOpenDate = 'openDate'; //启动日期
+  static final columnOutDate = 'outDate'; //到期日期
   DatabaseHelper._privateConstructor();
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
   static Database? _database;
@@ -32,7 +37,10 @@ class DatabaseHelper {
              $columnId INTEGER PRIMARY KEY AUTOINCREMENT, 
              $columnBrand TEXT NOT NULL,
              $columnProduct_Name TEXT NOT NULL,
-             $columnProduct_Style YEXT NOT NULL
+             $columnProduct_Style TEXT NOT NULL,
+             $columnProduceDate TEXT NOT NULL,
+             $columnOpenDate TEXT NOT NULL,
+             $columnOutDate TEXT NOT NULL
            ) 
             ''');
   }
@@ -42,7 +50,10 @@ class DatabaseHelper {
     var res = await db!.insert(table, {
       'brand': products.brand,
       'product_name': products.product_name,
-      'product_style': products.product_style
+      'product_style': products.product_style,
+      'produceDate': products.produceDate,
+      'openDate': products.openDate,
+      'outDate': products.outDate
     });
     return res;
   }
@@ -85,7 +96,10 @@ class DatabaseHelper {
         {
           'brand': products.brand,
           'product_name': products.product_name,
-          'product_style': products.product_style
+          'product_style': products.product_style,
+          'produceDate': products.produceDate,
+          'openDate': products.openDate,
+          'outDate': products.outDate
         },
         where: '$columnId = ?',
         whereArgs: [id]);

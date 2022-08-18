@@ -1,8 +1,11 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import './XDiPhone1212Pro5.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'DatabaseHelper.dart';
+import 'Products.dart';
 
 class ProductInfoPage extends StatefulWidget {
   const ProductInfoPage({Key? key, this.restorationId}) : super(key: key);
@@ -14,6 +17,33 @@ class ProductInfoPage extends StatefulWidget {
 
 class _ProductInfoPageState extends State<ProductInfoPage>
     with RestorationMixin {
+  final dbHelper = DatabaseHelper.instance; //启动数据库
+
+  List<Products> products = [];
+  var map = new Map();
+
+  TextEditingController brandControl = new TextEditingController();
+  TextEditingController product_nameControl = new TextEditingController();
+  TextEditingController product_styleControl = new TextEditingController();
+
+  void _insert(brand, product_name, product_style, produceDate, openDate,
+      outDate) async {
+    // row to insert
+    Map<String, dynamic> row = {
+      DatabaseHelper.columnBrand: brand,
+      DatabaseHelper.columnProduct_Name: product_name,
+      DatabaseHelper.columnProduct_Style: product_style,
+      DatabaseHelper.columnProduceDate: produceDate.toString(),
+      DatabaseHelper.columnOpenDate: openDate.toString(),
+      DatabaseHelper.columnOutDate: outDate.toString(),
+    };
+    Products products = Products.fromMap(row);
+    final id = await dbHelper.insert(products);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('inserted row id: $id'),
+    ));
+  }
+
   @override
   String? get restorationId => widget.restorationId;
 
@@ -126,6 +156,7 @@ class _ProductInfoPageState extends State<ProductInfoPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
@@ -423,24 +454,39 @@ class _ProductInfoPageState extends State<ProductInfoPage>
             ),
           ),
           Pinned.fromPins(
-            Pin(size: 58.0, end: 32.0),
-            Pin(size: 29.0, start: 72.0),
-            child: Text(
-              '编辑',
-              style: TextStyle(
-                fontFamily: 'Perpetua',
-                fontSize: 23,
-                color: const Color(0xff0a0a0a),
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ],
+            Pin(size: 60.0, end: 32.0),
+            Pin(size: 40.0, start: 72.0),
+            child: TextButton(
+              // color: const Color.fromRGBO(184, 218, 223, 1.0),
+              // elevation: 0,
+              child: Text(
+                "保存",
+                style: TextStyle(
+                  fontFamily: 'Perpetua',
+                  fontSize: 18,
+                  color: const Color(0xff0a0a0a),
+                  fontWeight: FontWeight.w700,
+                  shadows: [
+                    Shadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    )
+                  ],
+                ),
+                textAlign: TextAlign.right,
               ),
-              textAlign: TextAlign.right,
+
+              onPressed: () {
+                String ProduceDate = _ProduceDate.toString();
+                String OpenDate = _OpenDate.toString();
+                String OutDate = _OutDate.toString();
+                String brand = brandControl.text;
+                String product_name = product_nameControl.text;
+                String product_style = product_styleControl.text;
+                _insert(brand, product_name, product_style, ProduceDate,
+                    OpenDate, OutDate);
+              },
             ),
           ),
           Align(
@@ -465,27 +511,6 @@ class _ProductInfoPageState extends State<ProductInfoPage>
                 ),
                 textAlign: TextAlign.center,
               ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 124.0, end: 56.0),
-            Pin(size: 17.0, middle: 0.2357),
-            child: Text(
-              '巴黎卡诗KERASTASE',
-              style: TextStyle(
-                fontFamily: 'Perpetua',
-                fontSize: 12,
-                color: const Color(0xff818080),
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ],
-              ),
-              textAlign: TextAlign.center,
             ),
           ),
           Align(
@@ -720,48 +745,6 @@ class _ProductInfoPageState extends State<ProductInfoPage>
                   ),
                 )),
           ),
-          Pinned.fromPins(
-            Pin(size: 124.0, end: 56.0),
-            Pin(size: 17.0, middle: 0.3164),
-            child: Text(
-              '巴黎卡诗KERASTASE',
-              style: TextStyle(
-                fontFamily: 'Perpetua',
-                fontSize: 12,
-                color: const Color(0xff818080),
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ],
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 124.0, end: 56.0),
-            Pin(size: 17.0, middle: 0.3995),
-            child: Text(
-              '巴黎卡诗KERASTASE',
-              style: TextStyle(
-                fontFamily: 'Perpetua',
-                fontSize: 12,
-                color: const Color(0xff818080),
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ],
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
           Align(
             alignment: Alignment(0.17, -0.281),
             child: SizedBox(
@@ -878,6 +861,44 @@ class _ProductInfoPageState extends State<ProductInfoPage>
             Pin(size: 173.0, end: 32.0),
             Pin(size: 28.0, middle: 0.2314),
             child: Container(
+              // ignore: sort_child_properties_last
+              child: TextField(
+                // controller: brandControl,
+                onChanged: (value) {
+                  //品牌
+
+                  setState(() {
+                    this.brandControl.text = value;
+                    print(value);
+                  });
+                },
+                controller: TextEditingController.fromValue(TextEditingValue(
+                    // 输入的文本
+                    text: this.brandControl.text,
+                    // 保持光标在最后
+                    selection: TextSelection.fromPosition(TextPosition(
+                        affinity: TextAffinity.downstream,
+                        offset: brandControl.text.length)))),
+                decoration: InputDecoration(
+                  hintText: "请输入品牌名",
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
+                ),
+                style: TextStyle(
+                  fontFamily: 'Perpetua',
+                  fontSize: 12,
+                  color: const Color(0xff818080),
+                  fontWeight: FontWeight.w700,
+                  shadows: [
+                    Shadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    )
+                  ],
+                ),
+                textAlign: TextAlign.center,
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 border: Border.all(width: 1.0, color: const Color(0xff000000)),
@@ -888,6 +909,37 @@ class _ProductInfoPageState extends State<ProductInfoPage>
             Pin(size: 173.0, end: 32.0),
             Pin(size: 28.0, middle: 0.3132),
             child: Container(
+              child: TextField(
+                controller: TextEditingController.fromValue(TextEditingValue(
+                    // 输入的文本
+                    text: this.product_nameControl.text,
+                    // 保持光标在最后
+                    selection: TextSelection.fromPosition(TextPosition(
+                        affinity: TextAffinity.downstream,
+                        offset: product_nameControl.text.length)))),
+                onChanged: (value) {
+                  //产品名
+                  setState(() {
+                    this.product_nameControl.text = value;
+                    print(value);
+                  });
+                },
+                decoration: InputDecoration(hintText: "请输入产品名"),
+                style: TextStyle(
+                  fontFamily: 'Perpetua',
+                  fontSize: 12,
+                  color: const Color(0xff818080),
+                  fontWeight: FontWeight.w700,
+                  shadows: [
+                    Shadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    )
+                  ],
+                ),
+                textAlign: TextAlign.center,
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 border: Border.all(width: 1.0, color: const Color(0xff000000)),
@@ -898,6 +950,40 @@ class _ProductInfoPageState extends State<ProductInfoPage>
             Pin(size: 173.0, end: 32.0),
             Pin(size: 28.0, middle: 0.3975),
             child: Container(
+              child: TextField(
+                controller: TextEditingController.fromValue(TextEditingValue(
+                    // 输入的文本
+                    text: this.product_styleControl.text,
+                    // 保持光标在最后
+                    selection: TextSelection.fromPosition(TextPosition(
+                        affinity: TextAffinity.downstream,
+                        offset: product_styleControl.text.length)))),
+                onChanged: (value) {
+                  //产品类型
+                  setState(() {
+                    this.product_styleControl.text = value;
+                    print(value);
+                  });
+                },
+                decoration: InputDecoration(
+                    hintText: "请输入产品类型",
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0)),
+                style: TextStyle(
+                  fontFamily: 'Perpetua',
+                  fontSize: 12,
+                  color: const Color(0xff818080),
+                  fontWeight: FontWeight.w700,
+                  shadows: [
+                    Shadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    )
+                  ],
+                ),
+                textAlign: TextAlign.center,
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 border: Border.all(width: 1.0, color: const Color(0xff000000)),
