@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:qingjian/test.dart';
 
 import 'makeup.dart';
 import 'product.dart';
 import 'my.dart';
 import 'community.dart';
 import 'product_info.dart';
+import 'test.dart';
+import 'ceshi.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,7 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final bodyList = [
     ProductPage(),
     const ProductInfoPage(restorationId: 'main'),
-    CommunityPage(),
+    // CommunityPages(),
+    const DataBase(),
     MyPage()
   ];
 

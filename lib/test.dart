@@ -2,23 +2,20 @@ import 'package:flutter/material.dart';
 import 'DatabaseHelper.dart';
 import 'Products.dart';
 
-class Test extends StatefulWidget {
-  const Test({Key? key}) : super(key: key);
+class DataBase extends StatefulWidget {
+  const DataBase({Key? key, this.restorationId}) : super(key: key);
+
+  final String? restorationId;
 
   @override
   _TestState createState() => _TestState();
 }
 
-class _TestState extends State<Test> {
+class _TestState extends State<DataBase> with RestorationMixin {
   final dbHelper = DatabaseHelper.instance;
 
   List<Products> products = [];
   List<Products> productsByName = [];
-
-  //controllers used in insert operation UI
-  TextEditingController brandController = TextEditingController();
-  TextEditingController product_nameController = TextEditingController();
-  TextEditingController product_styleController = TextEditingController();
 
   //controllers used in update operation UI
   TextEditingController idUpdateController = TextEditingController();
@@ -38,6 +35,115 @@ class _TestState extends State<Test> {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(message),
     ));
+  }
+
+  @override
+  String? get restorationId => widget.restorationId;
+
+  final RestorableDateTime _ProduceDate =
+      RestorableDateTime(DateTime(2021, 7, 25));
+  final RestorableDateTime _OpenDate =
+      RestorableDateTime(DateTime(2021, 7, 25));
+  final RestorableDateTime _OutDate = RestorableDateTime(DateTime(2021, 7, 25));
+  late final RestorableRouteFuture<DateTime?>
+      _restorableProduceDatePickerRouteFuture =
+      RestorableRouteFuture<DateTime?>(
+    onComplete: _selectProduceDate,
+    onPresent: (NavigatorState navigator, Object? arguments) {
+      return navigator.restorablePush(
+        _datePickerRoute,
+        arguments: _ProduceDate.value.millisecondsSinceEpoch,
+      );
+    },
+  );
+
+  late final RestorableRouteFuture<DateTime?>
+      _restorableOpenDatePickerRouteFuture = RestorableRouteFuture<DateTime?>(
+    onComplete: _selectOpenDate,
+    onPresent: (NavigatorState navigator, Object? arguments) {
+      return navigator.restorablePush(
+        _datePickerRoute,
+        arguments: _OpenDate.value.millisecondsSinceEpoch,
+      );
+    },
+  );
+
+  late final RestorableRouteFuture<DateTime?>
+      _restorableOutDatePickerRouteFuture = RestorableRouteFuture<DateTime?>(
+    onComplete: _selectOutDate,
+    onPresent: (NavigatorState navigator, Object? arguments) {
+      return navigator.restorablePush(
+        _datePickerRoute,
+        arguments: _OutDate.value.millisecondsSinceEpoch,
+      );
+    },
+  );
+
+  @override
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
+    registerForRestoration(_ProduceDate, 'produce_date');
+    registerForRestoration(
+        _restorableProduceDatePickerRouteFuture, 'produce_date_picker');
+    registerForRestoration(_OpenDate, 'open_date');
+    registerForRestoration(_OutDate, 'out_date');
+    registerForRestoration(
+        _restorableOpenDatePickerRouteFuture, 'open_date_picker');
+    registerForRestoration(
+        _restorableOutDatePickerRouteFuture, 'out_date_picker');
+  }
+
+  void _selectProduceDate(DateTime? newSelectedDate) {
+    if (newSelectedDate != null) {
+      setState(() {
+        _ProduceDate.value = newSelectedDate;
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+              'Selected: ${_ProduceDate.value.day}/${_ProduceDate.value.month}/${_ProduceDate.value.year}'),
+        ));
+      });
+    }
+  }
+
+  void _selectOpenDate(DateTime? newSelectedDate) {
+    if (newSelectedDate != null) {
+      setState(() {
+        _OpenDate.value = newSelectedDate;
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+              'Selected: ${_OpenDate.value.day}/${_OpenDate.value.month}/${_OpenDate.value.year}'),
+        ));
+      });
+    }
+  }
+
+  void _selectOutDate(DateTime? newSelectedDate) {
+    if (newSelectedDate != null) {
+      setState(() {
+        _OutDate.value = newSelectedDate;
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+              'Selected: ${_OutDate.value.day}/${_OutDate.value.month}/${_OutDate.value.year}'),
+        ));
+      });
+    }
+  }
+
+  static Route<DateTime> _datePickerRoute(
+    BuildContext context,
+    Object? arguments,
+  ) {
+    return DialogRoute<DateTime>(
+      context: context,
+      builder: (BuildContext context) {
+        return DatePickerDialog(
+          restorationId: 'date_picker_dialog',
+          initialEntryMode: DatePickerEntryMode.calendarOnly,
+          initialDate: DateTime.fromMillisecondsSinceEpoch(arguments! as int),
+          firstDate: DateTime(2021),
+          lastDate: DateTime(2022),
+        );
+      },
+    );
   }
 
   @override
@@ -79,15 +185,19 @@ class _TestState extends State<Test> {
                       onPressed: () {
                         setState(() {
                           _queryAll();
+                          // ignore: avoid_print
+                          // print(
+                          //   '[${products[index].id}] ${products[index].brand} - ${products[index].product_name} - ${products[index].product_style}- ${products[index].produceDate}- ${products[index].openDate}- ${products[index].outDate}',
+                          // );
                         });
                       },
                     );
                   }
                   return Container(
-                    height: 40,
+                    height: 100,
                     child: Center(
                       child: Text(
-                        '[${products[index].id}] ${products[index].brand} - ${products[index].product_name} - ${products[index].product_style}',
+                        '[${products[index].id}] ${products[index].brand} - ${products[index].product_name} - ${products[index].product_style}- ${products[index].produceDate}- ${products[index].openDate}- ${products[index].outDate}',
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
@@ -128,11 +238,11 @@ class _TestState extends State<Test> {
                       itemCount: productsByName.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
-                          height: 50,
+                          height: 100,
                           margin: EdgeInsets.all(2),
                           child: Center(
                             child: Text(
-                              '[${products[index].id}] ${products[index].brand} - ${products[index].product_name} - ${products[index].product_style}',
+                              '[${productsByName[index].id}] ${productsByName[index].brand} - ${productsByName[index].product_name} - ${productsByName[index].product_style}- ${productsByName[index].produceDate}- ${productsByName[index].openDate}- ${productsByName[index].outDate}',
                               style: TextStyle(fontSize: 18),
                             ),
                           ),
@@ -187,14 +297,28 @@ class _TestState extends State<Test> {
                       ),
                     ),
                   ),
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    child: TextField(
+                      controller: product_styleUpdateController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'product_style',
+                      ),
+                    ),
+                  ),
                   RaisedButton(
                     child: Text('Update products'),
                     onPressed: () {
                       int id = int.parse(idUpdateController.text);
+                      String ProduceDate = _ProduceDate.toString();
+                      String OpenDate = _OpenDate.toString();
+                      String OutDate = _OutDate.toString();
                       String brand = brandUpdateController.text;
                       String product_name = product_nameUpdateController.text;
                       String product_style = product_styleUpdateController.text;
-                      _update(id, brand, product_name, product_style);
+                      _update(id, brand, product_name, product_style,
+                          ProduceDate, OpenDate, OutDate);
                     },
                   ),
                 ],
@@ -234,21 +358,31 @@ class _TestState extends State<Test> {
     //view
     final allRows = await dbHelper.queryAllRows();
     products.clear();
-    allRows.forEach((row) => products.add(Products.fromMap(row)));
+    allRows.forEach((row) => {
+          // ignore: unnecessary_null_comparison
+          if (products == null)
+            // ignore: avoid_print
+            {print("数据为空")}
+          else
+            {products.add(Products.fromMap(row))}
+        });
     _showMessageInScaffold('Query done.');
     setState(() {});
   }
 
   void _query(key) async {
     //query
-    final allRows = await dbHelper.queryRows(key);
+    final allRows = await dbHelper.queryRowsBrand(key);
     productsByName.clear();
+    // ignore: avoid_function_literals_in_foreach_calls
     allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
   }
 
-  void _update(id, brand, product_name, product_style) async {
+  void _update(id, brand, product_name, product_style, productDate, openDate,
+      outDate) async {
     // row to update
-    Products products = Products(id, brand, product_name, product_style);
+    Products products = Products(
+        id, brand, product_name, product_style, productDate, openDate, outDate);
     final rowsAffected = await dbHelper.update(products);
     _showMessageInScaffold('updated $rowsAffected row(s)');
   }

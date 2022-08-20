@@ -1068,7 +1068,7 @@ class _XDState extends State<XD> {
                 // Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  new MaterialPageRoute(builder: (context) => new Test()),
+                  new MaterialPageRoute(builder: (context) => new DataBase()),
                 );
               },
             ),
@@ -1300,7 +1300,9 @@ class _XDState extends State<XD> {
     };
     Products products = Products.fromMap(row);
     final id = await dbHelper.insert(products);
-    _showMessageInScaffold('inserted row id: $id');
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('inserted row id: $id'),
+    ));
   }
 }
 

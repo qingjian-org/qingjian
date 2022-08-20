@@ -1,8 +1,11 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import './XDiPhone1212Pro5.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'DatabaseHelper.dart';
+import 'Products.dart';
 
 class ProductInfoPage extends StatefulWidget {
   const ProductInfoPage({Key? key, this.restorationId}) : super(key: key);
@@ -14,6 +17,279 @@ class ProductInfoPage extends StatefulWidget {
 
 class _ProductInfoPageState extends State<ProductInfoPage>
     with RestorationMixin {
+  final dbHelper = DatabaseHelper.instance; //启动数据库
+
+  List<Products> products = [];
+  List<Products> productsByName = [];
+  var map = new Map();
+
+  TextEditingController brandControl = new TextEditingController();
+  TextEditingController product_nameControl = new TextEditingController();
+  TextEditingController product_styleControl = new TextEditingController();
+
+  void _insert(brand, product_name, product_style, produceDate, openDate,
+      outDate) async {
+    // row to insert
+    Map<String, dynamic> row = {
+      DatabaseHelper.columnBrand: brand,
+      DatabaseHelper.columnProduct_Name: product_name,
+      DatabaseHelper.columnProduct_Style: product_style,
+      DatabaseHelper.columnProduceDate: produceDate.toString(),
+      DatabaseHelper.columnOpenDate: openDate.toString(),
+      DatabaseHelper.columnOutDate: outDate.toString(),
+    };
+    Products products = Products.fromMap(row);
+    final id = await dbHelper.insert(products);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('inserted row id: $id'),
+    ));
+  }
+
+  void _querybrand(key) async {
+    //query
+    final allRows = await dbHelper.queryRowsBrand(key);
+    productsByName.clear();
+    // ignore: avoid_function_literals_in_foreach_calls
+    allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
+  }
+
+  void _queryproductname(key) async {
+    //query
+    final allRows = await dbHelper.queryRowsProductname(key);
+    productsByName.clear();
+    // ignore: avoid_function_literals_in_foreach_calls
+    allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
+  }
+
+  void _queryproductstyle(key) async {
+    //query
+    final allRows = await dbHelper.queryRowsProductstyle(key);
+    productsByName.clear();
+    // ignore: avoid_function_literals_in_foreach_calls
+    allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
+  }
+
+  FocusNode focusNodeBrand = new FocusNode();
+  FocusNode focusNodeProductname = new FocusNode();
+  FocusNode focusNodeProductstyle = new FocusNode();
+  late OverlayEntry overlayEntryBrand;
+  late OverlayEntry overlayEntryProductname;
+  late OverlayEntry overlayEntryProductstyle;
+
+  LayerLink layerLink = new LayerLink();
+
+  @override
+  void initState() {
+    super.initState();
+    focusNodeProductname.addListener(() {
+      if (focusNodeProductname.hasFocus) {
+        overlayEntryProductname = createSelectPopupWindow_Productname();
+        Overlay.of(context)!.insert(overlayEntryProductname);
+      } else {
+        overlayEntryProductname.remove();
+      }
+    });
+    focusNodeBrand.addListener(() {
+      if (focusNodeBrand.hasFocus) {
+        overlayEntryBrand = createSelectPopupWindow_Brand();
+        Overlay.of(context)!.insert(overlayEntryBrand);
+      } else {
+        overlayEntryBrand.remove();
+      }
+    });
+    focusNodeProductstyle.addListener(() {
+      if (focusNodeProductstyle.hasFocus) {
+        overlayEntryProductstyle = createSelectPopupWindow_Productstyle();
+        Overlay.of(context)!.insert(overlayEntryProductstyle);
+      } else {
+        overlayEntryProductstyle.remove();
+      }
+    });
+  }
+
+  OverlayEntry createSelectPopupWindow_Brand() {
+    RenderBox renderBox = context.findRenderObject() as RenderBox;
+    // ignore: unused_local_variable
+    var size = renderBox.size;
+    return OverlayEntry(
+        builder: (context) => Positioned(
+              top: 140,
+              left: 208,
+              width: 173,
+              child: new CompositedTransformFollower(
+                offset: const Offset(0.0, 10),
+                link: layerLink,
+                child: new Material(
+                  child: new Container(
+                      height: 120,
+                      width: 173,
+                      color: const Color.fromARGB(255, 247, 247, 247),
+                      child: ListView.builder(
+                          padding: const EdgeInsets.all(2),
+                          itemCount: productsByName.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                                height: 35,
+                                width: 173,
+                                margin: const EdgeInsets.all(1.0),
+                                child: Center(
+                                  child: TextButton(
+                                    child: Text(
+                                      '${productsByName[index].brand}',
+                                      style: const TextStyle(
+                                        fontFamily: 'Perpetua',
+                                        fontSize: 14,
+                                        color: Color(0xff818080),
+                                        fontWeight: FontWeight.w700,
+                                        shadows: [
+                                          Shadow(
+                                            color: Color(0x29000000),
+                                            offset: Offset(0, 3),
+                                            blurRadius: 6,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        brandControl.text =
+                                            productsByName[index].brand!;
+                                        // ignore: avoid_print
+                                        print(brandControl.text);
+                                        focusNodeBrand.unfocus();
+                                      });
+                                    },
+                                  ),
+                                ));
+                          })),
+                ),
+              ),
+            ));
+  }
+
+  // ignore: non_constant_identifier_names
+  OverlayEntry createSelectPopupWindow_Productname() {
+    RenderBox renderBox = context.findRenderObject() as RenderBox;
+    // ignore: unused_local_variable
+    var size = renderBox.size;
+    return OverlayEntry(
+        builder: (context) => Positioned(
+              top: 175,
+              left: 208,
+              width: 173,
+              child: new CompositedTransformFollower(
+                offset: const Offset(0.0, 10),
+                link: layerLink,
+                child: new Material(
+                  child: new Container(
+                      height: 120,
+                      width: 173,
+                      color: const Color.fromARGB(255, 247, 247, 247),
+                      child: ListView.builder(
+                          padding: const EdgeInsets.all(2),
+                          itemCount: productsByName.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                                height: 35,
+                                width: 173,
+                                margin: const EdgeInsets.all(1.0),
+                                child: Center(
+                                  child: TextButton(
+                                    child: Text(
+                                      '${productsByName[index].product_name}',
+                                      style: const TextStyle(
+                                        fontFamily: 'Perpetua',
+                                        fontSize: 14,
+                                        color: Color(0xff818080),
+                                        fontWeight: FontWeight.w700,
+                                        shadows: [
+                                          Shadow(
+                                            color: Color(0x29000000),
+                                            offset: Offset(0, 3),
+                                            blurRadius: 6,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        product_nameControl.text =
+                                            productsByName[index].product_name!;
+                                        // ignore: avoid_print
+                                        print(product_nameControl.text);
+                                        focusNodeProductname.unfocus();
+                                      });
+                                    },
+                                  ),
+                                ));
+                          })),
+                ),
+              ),
+            ));
+  }
+
+  // ignore: non_constant_identifier_names
+  OverlayEntry createSelectPopupWindow_Productstyle() {
+    RenderBox renderBox = context.findRenderObject() as RenderBox;
+    // ignore: unused_local_variable
+    var size = renderBox.size;
+    return OverlayEntry(
+        builder: (context) => Positioned(
+              top: 215,
+              left: 208,
+              width: 173,
+              child: new CompositedTransformFollower(
+                offset: const Offset(0.0, 10),
+                link: layerLink,
+                child: new Material(
+                  child: new Container(
+                      height: 120,
+                      width: 173,
+                      color: const Color.fromARGB(255, 247, 247, 247),
+                      child: ListView.builder(
+                          padding: const EdgeInsets.all(2),
+                          itemCount: productsByName.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                                height: 35,
+                                width: 173,
+                                margin: const EdgeInsets.all(1.0),
+                                child: Center(
+                                  child: TextButton(
+                                    child: Text(
+                                      '${productsByName[index].product_style}',
+                                      style: const TextStyle(
+                                        fontFamily: 'Perpetua',
+                                        fontSize: 14,
+                                        color: Color(0xff818080),
+                                        fontWeight: FontWeight.w700,
+                                        shadows: [
+                                          Shadow(
+                                            color: Color(0x29000000),
+                                            offset: Offset(0, 3),
+                                            blurRadius: 6,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        product_styleControl.text =
+                                            productsByName[index]
+                                                .product_style!;
+                                        // ignore: avoid_print
+                                        print(product_styleControl.text);
+                                        focusNodeProductstyle.unfocus();
+                                      });
+                                    },
+                                  ),
+                                ));
+                          })),
+                ),
+              ),
+            ));
+  }
+
   @override
   String? get restorationId => widget.restorationId;
 
@@ -126,6 +402,7 @@ class _ProductInfoPageState extends State<ProductInfoPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
@@ -423,24 +700,39 @@ class _ProductInfoPageState extends State<ProductInfoPage>
             ),
           ),
           Pinned.fromPins(
-            Pin(size: 58.0, end: 32.0),
-            Pin(size: 29.0, start: 72.0),
-            child: Text(
-              '编辑',
-              style: TextStyle(
-                fontFamily: 'Perpetua',
-                fontSize: 23,
-                color: const Color(0xff0a0a0a),
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ],
+            Pin(size: 60.0, end: 32.0),
+            Pin(size: 40.0, start: 72.0),
+            child: TextButton(
+              // color: const Color.fromRGBO(184, 218, 223, 1.0),
+              // elevation: 0,
+              child: Text(
+                "保存",
+                style: TextStyle(
+                  fontFamily: 'Perpetua',
+                  fontSize: 18,
+                  color: const Color(0xff0a0a0a),
+                  fontWeight: FontWeight.w700,
+                  shadows: [
+                    Shadow(
+                      color: const Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    )
+                  ],
+                ),
+                textAlign: TextAlign.right,
               ),
-              textAlign: TextAlign.right,
+
+              onPressed: () {
+                String ProduceDate = _ProduceDate.toString();
+                String OpenDate = _OpenDate.toString();
+                String OutDate = _OutDate.toString();
+                String brand = brandControl.text;
+                String product_name = product_nameControl.text;
+                String product_style = product_styleControl.text;
+                _insert(brand, product_name, product_style, ProduceDate,
+                    OpenDate, OutDate);
+              },
             ),
           ),
           Align(
@@ -465,27 +757,6 @@ class _ProductInfoPageState extends State<ProductInfoPage>
                 ),
                 textAlign: TextAlign.center,
               ),
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 124.0, end: 56.0),
-            Pin(size: 17.0, middle: 0.2357),
-            child: Text(
-              '巴黎卡诗KERASTASE',
-              style: TextStyle(
-                fontFamily: 'Perpetua',
-                fontSize: 12,
-                color: const Color(0xff818080),
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ],
-              ),
-              textAlign: TextAlign.center,
             ),
           ),
           Align(
@@ -720,48 +991,6 @@ class _ProductInfoPageState extends State<ProductInfoPage>
                   ),
                 )),
           ),
-          Pinned.fromPins(
-            Pin(size: 124.0, end: 56.0),
-            Pin(size: 17.0, middle: 0.3164),
-            child: Text(
-              '巴黎卡诗KERASTASE',
-              style: TextStyle(
-                fontFamily: 'Perpetua',
-                fontSize: 12,
-                color: const Color(0xff818080),
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ],
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 124.0, end: 56.0),
-            Pin(size: 17.0, middle: 0.3995),
-            child: Text(
-              '巴黎卡诗KERASTASE',
-              style: TextStyle(
-                fontFamily: 'Perpetua',
-                fontSize: 12,
-                color: const Color(0xff818080),
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0x29000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ],
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
           Align(
             alignment: Alignment(0.17, -0.281),
             child: SizedBox(
@@ -875,35 +1104,196 @@ class _ProductInfoPageState extends State<ProductInfoPage>
             ),
           ),
           Pinned.fromPins(
-            Pin(size: 173.0, end: 32.0),
-            Pin(size: 28.0, middle: 0.2314),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(width: 1.0, color: const Color(0xff000000)),
-              ),
-            ),
-          ),
+              Pin(size: 173.0, end: 32.0), Pin(size: 28.0, middle: 0.2314),
+              child: Column(
+                children: [
+                  Container(
+                    height: 28,
+                    // ignore: sort_child_properties_last
+                    child: TextField(
+                      focusNode: focusNodeBrand,
+                      onChanged: (text) {
+                        //品牌
+                        brandControl.text = text;
+                        print(text);
+                        setState(() {
+                          if (text.isNotEmpty) {
+                            setState(() {
+                              _querybrand(text);
+                            });
+                          } else {
+                            setState(() {
+                              productsByName.clear();
+                            });
+                          }
+                        });
+                      },
+                      controller: TextEditingController.fromValue(
+                          TextEditingValue(
+                              // 输入的文本
+                              text: brandControl.text,
+                              // 保持光标在最后
+                              selection: TextSelection.fromPosition(
+                                  TextPosition(
+                                      affinity: TextAffinity.downstream,
+                                      offset: brandControl.text.length)))),
+                      decoration: const InputDecoration(
+                        hintText: "请输入品牌名",
+                        border: InputBorder.none,
+                        contentPadding:
+                            EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
+                      ),
+                      style: const TextStyle(
+                        fontFamily: 'Perpetua',
+                        fontSize: 12,
+                        color: Color(0xff818080),
+                        fontWeight: FontWeight.w700,
+                        shadows: [
+                          Shadow(
+                            color: Color(0x29000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          )
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(
+                          width: 1.0, color: const Color(0xff000000)),
+                    ),
+                  ),
+                ],
+              )),
           Pinned.fromPins(
-            Pin(size: 173.0, end: 32.0),
-            Pin(size: 28.0, middle: 0.3132),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(width: 1.0, color: const Color(0xff000000)),
-              ),
-            ),
-          ),
+              Pin(size: 173.0, end: 32.0), Pin(size: 28.0, middle: 0.3132),
+              child: Column(
+                children: [
+                  Container(
+                    height: 28,
+                    // ignore: sort_child_properties_last
+                    child: TextField(
+                      focusNode: focusNodeProductname,
+                      onChanged: (text) {
+                        //产品名
+                        product_nameControl.text = text;
+                        print(text);
+                        setState(() {
+                          if (text.isNotEmpty) {
+                            setState(() {
+                              _queryproductname(text);
+                            });
+                          } else {
+                            setState(() {
+                              productsByName.clear();
+                            });
+                          }
+                        });
+                      },
+                      controller: TextEditingController.fromValue(
+                          TextEditingValue(
+                              // 输入的文本
+                              text: product_nameControl.text,
+                              // 保持光标在最后
+                              selection: TextSelection.fromPosition(
+                                  TextPosition(
+                                      affinity: TextAffinity.downstream,
+                                      offset:
+                                          product_nameControl.text.length)))),
+                      decoration: const InputDecoration(
+                        hintText: "请输入产品名",
+                        border: InputBorder.none,
+                        contentPadding:
+                            EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
+                      ),
+                      style: const TextStyle(
+                        fontFamily: 'Perpetua',
+                        fontSize: 12,
+                        color: Color(0xff818080),
+                        fontWeight: FontWeight.w700,
+                        shadows: [
+                          Shadow(
+                            color: Color(0x29000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          )
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(
+                          width: 1.0, color: const Color(0xff000000)),
+                    ),
+                  ),
+                ],
+              )),
           Pinned.fromPins(
-            Pin(size: 173.0, end: 32.0),
-            Pin(size: 28.0, middle: 0.3975),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(width: 1.0, color: const Color(0xff000000)),
-              ),
-            ),
-          ),
+              Pin(size: 173.0, end: 32.0), Pin(size: 28.0, middle: 0.3975),
+              child: Column(
+                children: [
+                  Container(
+                    height: 28,
+                    // ignore: sort_child_properties_last
+                    child: TextField(
+                      focusNode: focusNodeProductstyle,
+                      onChanged: (text) {
+                        //产品名
+                        product_styleControl.text = text;
+                        print(text);
+                        setState(() {
+                          if (text.isNotEmpty) {
+                            setState(() {
+                              _queryproductstyle(text);
+                            });
+                          } else {
+                            setState(() {
+                              productsByName.clear();
+                            });
+                          }
+                        });
+                      },
+                      controller: TextEditingController.fromValue(
+                          TextEditingValue(
+                              // 输入的文本
+                              text: product_styleControl.text,
+                              // 保持光标在最后
+                              selection: TextSelection.fromPosition(
+                                  TextPosition(
+                                      affinity: TextAffinity.downstream,
+                                      offset:
+                                          product_styleControl.text.length)))),
+                      decoration: const InputDecoration(
+                        hintText: "请输入产品类型",
+                        border: InputBorder.none,
+                        contentPadding:
+                            EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
+                      ),
+                      style: const TextStyle(
+                        fontFamily: 'Perpetua',
+                        fontSize: 12,
+                        color: Color(0xff818080),
+                        fontWeight: FontWeight.w700,
+                        shadows: [
+                          Shadow(
+                            color: Color(0x29000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
+                          )
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      border: Border.all(
+                          width: 1.0, color: const Color(0xff000000)),
+                    ),
+                  ),
+                ],
+              )),
           Pinned.fromPins(
             Pin(size: 279.0, end: 32.0),
             Pin(size: 1.0, middle: 0.5462),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'product_add.dart';
-// import 'xdi_phone1212_pro5.dart';
-import 'x_d.dart';
+import 'product_info.dart';
 
 final List<String> _suggestions = <String>[
   '产品一',
@@ -132,8 +130,8 @@ class _ProductPageState extends State<ProductPage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => XD()));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ProductInfoPage()));
           },
           child: const Icon(Icons.add),
         ));
