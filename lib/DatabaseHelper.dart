@@ -64,10 +64,24 @@ class DatabaseHelper {
   }
 
   // Queries rows based on the argument received
-  Future<List<Map<String, dynamic>>> queryRows(product_name) async {
+  Future<List<Map<String, dynamic>>> queryRowsBrand(key) async {
     Database? db = await instance.database;
-    return await db!
-        .query(table, where: "$columnProduct_Name LIKE '%$product_name%'");
+    return await db!.query(table,
+        where: "$columnBrand LIKE '%$key%' GROUP BY $columnBrand");
+  }
+
+  Future<List<Map<String, dynamic>>> queryRowsProductname(key) async {
+    Database? db = await instance.database;
+    return await db!.query(table,
+        where:
+            "$columnProduct_Name LIKE '%$key%' GROUP BY $columnProduct_Name");
+  }
+
+  Future<List<Map<String, dynamic>>> queryRowsProductstyle(key) async {
+    Database? db = await instance.database;
+    return await db!.query(table,
+        where:
+            "$columnProduct_Style LIKE '%$key%' GROUP BY $columnProduct_Style");
   }
 
   // All of the methods (insert, query, update, delete) can also be done using

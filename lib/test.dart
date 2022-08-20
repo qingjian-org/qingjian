@@ -372,7 +372,7 @@ class _TestState extends State<DataBase> with RestorationMixin {
 
   void _query(key) async {
     //query
-    final allRows = await dbHelper.queryRows(key);
+    final allRows = await dbHelper.queryRowsBrand(key);
     productsByName.clear();
     // ignore: avoid_function_literals_in_foreach_calls
     allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
