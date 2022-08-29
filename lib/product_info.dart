@@ -1,11 +1,11 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import './XDiPhone1212Pro5.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'DatabaseHelper.dart';
 import 'Products.dart';
+import 'makeup_table.dart';
 
 class ProductInfoPage extends StatefulWidget {
   const ProductInfoPage({Key? key, this.restorationId}) : super(key: key);
@@ -1498,7 +1498,7 @@ class _ProductInfoPageState extends State<ProductInfoPage>
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => XDiPhone1212Pro5(),
+                  pageBuilder: () => MakeUpTable(),
                 ),
               ],
               child: Text(

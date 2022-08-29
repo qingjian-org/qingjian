@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:qingjian/test.dart';
+// import 'package:qingjian/test.dart';
 
 import 'makeup.dart';
-import 'product.dart';
+import 'makeup_table.dart';
 import 'my.dart';
 import 'community.dart';
 import 'product_info.dart';
@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 // 第二行注释
   final bodyList = [
-    ProductPage(),
+    MakeUpTable(),
     const ProductInfoPage(restorationId: 'main'),
     // CommunityPages(),
     const DataBase(),
