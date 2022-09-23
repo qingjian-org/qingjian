@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_function_literals_in_foreach_calls, deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'DatabaseHelper.dart';
 import 'Products.dart';
@@ -8,28 +10,28 @@ class DataBase extends StatefulWidget {
   final String? restorationId;
 
   @override
-  _TestState createState() => _TestState();
+  _DataBaseState createState() => _DataBaseState();
 }
 
-class _TestState extends State<DataBase> with RestorationMixin {
+class _DataBaseState extends State<DataBase> with RestorationMixin {
   final dbHelper = DatabaseHelper.instance;
 
   List<Products> products = [];
   List<Products> productsByName = [];
 
-  //controllers used in update operation UI
+  // controllers used in update operation UI
   TextEditingController idUpdateController = TextEditingController();
   TextEditingController brandUpdateController = TextEditingController();
-  TextEditingController product_nameUpdateController = TextEditingController();
-  TextEditingController product_styleUpdateController = TextEditingController();
+  TextEditingController productNameUpdateController = TextEditingController();
+  TextEditingController productStyleUpdateController = TextEditingController();
 
-  //controllers used in delete operation UI
+  // controllers used in delete operation UI
   TextEditingController idDeleteController = TextEditingController();
 
-  //controllers used in query operation UI
+  // controllers used in query operation UI
   TextEditingController queryController = TextEditingController();
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _showMessageInScaffold(String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -40,11 +42,11 @@ class _TestState extends State<DataBase> with RestorationMixin {
   @override
   String? get restorationId => widget.restorationId;
 
-  final RestorableDateTime _ProduceDate =
+  final RestorableDateTime _produceDate =
       RestorableDateTime(DateTime(2021, 7, 25));
-  final RestorableDateTime _OpenDate =
+  final RestorableDateTime _openDate =
       RestorableDateTime(DateTime(2021, 7, 25));
-  final RestorableDateTime _OutDate = RestorableDateTime(DateTime(2021, 7, 25));
+  final RestorableDateTime _outDate = RestorableDateTime(DateTime(2021, 7, 25));
   late final RestorableRouteFuture<DateTime?>
       _restorableProduceDatePickerRouteFuture =
       RestorableRouteFuture<DateTime?>(
@@ -52,7 +54,7 @@ class _TestState extends State<DataBase> with RestorationMixin {
     onPresent: (NavigatorState navigator, Object? arguments) {
       return navigator.restorablePush(
         _datePickerRoute,
-        arguments: _ProduceDate.value.millisecondsSinceEpoch,
+        arguments: _produceDate.value.millisecondsSinceEpoch,
       );
     },
   );
@@ -63,7 +65,7 @@ class _TestState extends State<DataBase> with RestorationMixin {
     onPresent: (NavigatorState navigator, Object? arguments) {
       return navigator.restorablePush(
         _datePickerRoute,
-        arguments: _OpenDate.value.millisecondsSinceEpoch,
+        arguments: _openDate.value.millisecondsSinceEpoch,
       );
     },
   );
@@ -74,18 +76,18 @@ class _TestState extends State<DataBase> with RestorationMixin {
     onPresent: (NavigatorState navigator, Object? arguments) {
       return navigator.restorablePush(
         _datePickerRoute,
-        arguments: _OutDate.value.millisecondsSinceEpoch,
+        arguments: _outDate.value.millisecondsSinceEpoch,
       );
     },
   );
 
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(_ProduceDate, 'produce_date');
+    registerForRestoration(_produceDate, 'produce_date');
     registerForRestoration(
         _restorableProduceDatePickerRouteFuture, 'produce_date_picker');
-    registerForRestoration(_OpenDate, 'open_date');
-    registerForRestoration(_OutDate, 'out_date');
+    registerForRestoration(_openDate, 'open_date');
+    registerForRestoration(_outDate, 'out_date');
     registerForRestoration(
         _restorableOpenDatePickerRouteFuture, 'open_date_picker');
     registerForRestoration(
@@ -95,10 +97,10 @@ class _TestState extends State<DataBase> with RestorationMixin {
   void _selectProduceDate(DateTime? newSelectedDate) {
     if (newSelectedDate != null) {
       setState(() {
-        _ProduceDate.value = newSelectedDate;
+        _produceDate.value = newSelectedDate;
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(
-              'Selected: ${_ProduceDate.value.day}/${_ProduceDate.value.month}/${_ProduceDate.value.year}'),
+              'Selected: ${_produceDate.value.day}/${_produceDate.value.month}/${_produceDate.value.year}'),
         ));
       });
     }
@@ -107,10 +109,10 @@ class _TestState extends State<DataBase> with RestorationMixin {
   void _selectOpenDate(DateTime? newSelectedDate) {
     if (newSelectedDate != null) {
       setState(() {
-        _OpenDate.value = newSelectedDate;
+        _openDate.value = newSelectedDate;
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(
-              'Selected: ${_OpenDate.value.day}/${_OpenDate.value.month}/${_OpenDate.value.year}'),
+              'Selected: ${_openDate.value.day}/${_openDate.value.month}/${_openDate.value.year}'),
         ));
       });
     }
@@ -119,10 +121,10 @@ class _TestState extends State<DataBase> with RestorationMixin {
   void _selectOutDate(DateTime? newSelectedDate) {
     if (newSelectedDate != null) {
       setState(() {
-        _OutDate.value = newSelectedDate;
+        _outDate.value = newSelectedDate;
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(
-              'Selected: ${_OutDate.value.day}/${_OutDate.value.month}/${_OutDate.value.year}'),
+              'Selected: ${_outDate.value.day}/${_outDate.value.month}/${_outDate.value.year}'),
         ));
       });
     }
@@ -153,7 +155,7 @@ class _TestState extends State<DataBase> with RestorationMixin {
       child: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          bottom: TabBar(
+          bottom: const TabBar(
             tabs: [
               Tab(
                 text: "View",
@@ -169,56 +171,55 @@ class _TestState extends State<DataBase> with RestorationMixin {
               ),
             ],
           ),
-          title: Text('数据库暂时存储查询'),
+          title: const Text('数据库暂时存储查询'),
         ),
         body: TabBarView(
           children: [
             //view
-            Container(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(8),
-                itemCount: products.length + 1,
-                itemBuilder: (BuildContext context, int index) {
-                  if (index == products.length) {
-                    return RaisedButton(
-                      child: Text('Refresh'),
-                      onPressed: () {
-                        setState(() {
-                          _queryAll();
-                          // ignore: avoid_print
-                          // print(
-                          //   '[${products[index].id}] ${products[index].brand} - ${products[index].product_name} - ${products[index].product_style}- ${products[index].produceDate}- ${products[index].openDate}- ${products[index].outDate}',
-                          // );
-                        });
-                      },
-                    );
-                  }
-                  return Container(
-                    height: 100,
-                    child: Center(
-                      child: Text(
-                        '[${products[index].id}] ${products[index].brand} - ${products[index].product_name} - ${products[index].product_style}- ${products[index].produceDate}- ${products[index].openDate}- ${products[index].outDate}',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
+            ListView.builder(
+              padding: const EdgeInsets.all(8),
+              itemCount: products.length + 1,
+              itemBuilder: (BuildContext context, int index) {
+                if (index == products.length) {
+                  return RaisedButton(
+                    child: const Text('Refresh'),
+                    onPressed: () {
+                      setState(() {
+                        _queryAll();
+                        // ignore: avoid_print
+                        // print(
+                        //   '[${products[index].id}] ${products[index].brand} - ${products[index].product_name} - ${products[index].product_style}- ${products[index].produceDate}- ${products[index].openDate}- ${products[index].outDate}',
+                        // );
+                      });
+                    },
                   );
-                },
-              ),
+                }
+                return SizedBox(
+                  height: 100,
+                  child: Center(
+                    child: Text(
+                      '[${products[index].id}] ${products[index].brand} - ${products[index].productName} - ${products[index].productStyle}- ${products[index].produceDate}- ${products[index].openDate}- ${products[index].outDate}',
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ),
+                );
+              },
             ),
             //query
             Center(
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
+                    height: 100,
                     child: TextField(
                       controller: queryController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: '关键词',
                       ),
                       onChanged: (text) {
-                        if (text.length >= 1) {
+                        if (text.isNotEmpty) {
                           setState(() {
                             _query(text);
                           });
@@ -229,9 +230,8 @@ class _TestState extends State<DataBase> with RestorationMixin {
                         }
                       },
                     ),
-                    height: 100,
                   ),
-                  Container(
+                  SizedBox(
                     height: 300,
                     child: ListView.builder(
                       padding: const EdgeInsets.all(8),
@@ -239,11 +239,11 @@ class _TestState extends State<DataBase> with RestorationMixin {
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
                           height: 100,
-                          margin: EdgeInsets.all(2),
+                          margin: const EdgeInsets.all(2),
                           child: Center(
                             child: Text(
-                              '[${productsByName[index].id}] ${productsByName[index].brand} - ${productsByName[index].product_name} - ${productsByName[index].product_style}- ${productsByName[index].produceDate}- ${productsByName[index].openDate}- ${productsByName[index].outDate}',
-                              style: TextStyle(fontSize: 18),
+                              '[${productsByName[index].id}] ${productsByName[index].brand} - ${productsByName[index].productName} - ${productsByName[index].productStyle}- ${productsByName[index].produceDate}- ${productsByName[index].openDate}- ${productsByName[index].outDate}',
+                              style: const TextStyle(fontSize: 18),
                             ),
                           ),
                         );
@@ -258,67 +258,67 @@ class _TestState extends State<DataBase> with RestorationMixin {
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: TextField(
                       controller: idUpdateController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'id',
                       ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: TextField(
                       controller: brandUpdateController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'brand',
                       ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: TextField(
-                      controller: product_nameUpdateController,
-                      decoration: InputDecoration(
+                      controller: productNameUpdateController,
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'product_name',
                       ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: TextField(
-                      controller: product_styleUpdateController,
-                      decoration: InputDecoration(
+                      controller: productStyleUpdateController,
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'product_style',
                       ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: TextField(
-                      controller: product_styleUpdateController,
-                      decoration: InputDecoration(
+                      controller: productStyleUpdateController,
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'product_style',
                       ),
                     ),
                   ),
                   RaisedButton(
-                    child: Text('Update products'),
+                    child: const Text('Update products'),
                     onPressed: () {
-                      int id = int.parse(idUpdateController.text);
-                      String ProduceDate = _ProduceDate.toString();
-                      String OpenDate = _OpenDate.toString();
-                      String OutDate = _OutDate.toString();
-                      String brand = brandUpdateController.text;
-                      String product_name = product_nameUpdateController.text;
-                      String product_style = product_styleUpdateController.text;
-                      _update(id, brand, product_name, product_style,
-                          ProduceDate, OpenDate, OutDate);
+                      _update(
+                          int.parse(idUpdateController.text),
+                          brandUpdateController.text,
+                          productNameUpdateController.text,
+                          productStyleUpdateController.text,
+                          _produceDate.toString(),
+                          _openDate.toString(),
+                          _outDate.toString(),
+                          'i');
                     },
                   ),
                 ],
@@ -329,17 +329,17 @@ class _TestState extends State<DataBase> with RestorationMixin {
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: TextField(
                       controller: idDeleteController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'id',
                       ),
                     ),
                   ),
                   RaisedButton(
-                    child: Text('Delete'),
+                    child: const Text('Delete'),
                     onPressed: () {
                       int id = int.parse(idDeleteController.text);
                       _delete(id);
@@ -358,31 +358,22 @@ class _TestState extends State<DataBase> with RestorationMixin {
     //view
     final allRows = await dbHelper.queryAllRows();
     products.clear();
-    allRows.forEach((row) => {
-          // ignore: unnecessary_null_comparison
-          if (products == null)
-            // ignore: avoid_print
-            {print("数据为空")}
-          else
-            {products.add(Products.fromMap(row))}
-        });
+    allRows.forEach((row) => products.add(Products.fromMap(row)));
     _showMessageInScaffold('Query done.');
-    setState(() {});
   }
 
   void _query(key) async {
     //query
     final allRows = await dbHelper.queryRowsBrand(key);
     productsByName.clear();
-    // ignore: avoid_function_literals_in_foreach_calls
     allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
   }
 
-  void _update(id, brand, product_name, product_style, productDate, openDate,
-      outDate) async {
+  void _update(id, brand, productName, productStyle, productDate, openDate,
+      outDate, image) async {
     // row to update
-    Products products = Products(
-        id, brand, product_name, product_style, productDate, openDate, outDate);
+    Products products = Products(id, brand, productName, productStyle,
+        productDate, openDate, outDate, image);
     final rowsAffected = await dbHelper.update(products);
     _showMessageInScaffold('updated $rowsAffected row(s)');
   }

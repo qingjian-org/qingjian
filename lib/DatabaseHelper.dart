@@ -1,20 +1,19 @@
-import 'dart:convert';
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'Products.dart';
 
 class DatabaseHelper {
-  static final _databaseName = "Products.db"; //数据库名称
-  static final _databaseVersion = 1; //数据库版本
-  static final table = 'Products_table'; //数据表名称
-  static final columnId = 'id'; //id属性
-  static final columnBrand = 'brand'; //品牌属性
-  static final columnProduct_Name = 'product_name'; //产品名属性
-  static final columnProduct_Style = 'product_style'; //产品类型属性
-  static final columnProduceDate = 'produceDate'; //生产日期
-  static final columnOpenDate = 'openDate'; //启动日期
-  static final columnOutDate = 'outDate'; //到期日期
+  static const _databaseName = "Products.db"; //数据库名称
+  static const _databaseVersion = 1; //数据库版本
+  static const table = 'Products_table'; //数据表名称
+  static const columnId = 'id'; //id属性
+  static const columnBrand = 'brand'; //品牌属性
+  static const columnProductName = 'product_name'; //产品名属性
+  static const columnProductStyle = 'product_style'; //产品类型属性
+  static const columnProduceDate = 'produceDate'; //生产日期
+  static const columnOpenDate = 'openDate'; //启动日期
+  static const columnOutDate = 'outDate'; //到期日期
+  static const columnImage = 'image';
   DatabaseHelper._privateConstructor();
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
   static Database? _database;
@@ -36,11 +35,12 @@ class DatabaseHelper {
            CREATE TABLE $table ( 
              $columnId INTEGER PRIMARY KEY AUTOINCREMENT, 
              $columnBrand TEXT NOT NULL,
-             $columnProduct_Name TEXT NOT NULL,
-             $columnProduct_Style TEXT NOT NULL,
+             $columnProductName TEXT NOT NULL,
+             $columnProductStyle TEXT NOT NULL,
              $columnProduceDate TEXT NOT NULL,
              $columnOpenDate TEXT NOT NULL,
-             $columnOutDate TEXT NOT NULL
+             $columnOutDate TEXT NOT NULL,
+             $columnImage TEXT NOT NULL
            ) 
             ''');
   }
@@ -48,12 +48,13 @@ class DatabaseHelper {
   Future<int> insert(Products products) async {
     Database? db = await instance.database; //相当于是启动数据库进程的命令
     var res = await db!.insert(table, {
-      'brand': products.brand,
-      'product_name': products.product_name,
-      'product_style': products.product_style,
-      'produceDate': products.produceDate,
-      'openDate': products.openDate,
-      'outDate': products.outDate
+      columnBrand: products.brand,
+      columnProductName: products.productName,
+      columnProductStyle: products.productStyle,
+      columnProduceDate: products.produceDate,
+      columnOpenDate: products.openDate,
+      columnOutDate: products.outDate,
+      columnImage: products.image
     });
     return res;
   }
@@ -73,15 +74,14 @@ class DatabaseHelper {
   Future<List<Map<String, dynamic>>> queryRowsProductname(key) async {
     Database? db = await instance.database;
     return await db!.query(table,
-        where:
-            "$columnProduct_Name LIKE '%$key%' GROUP BY $columnProduct_Name");
+        where: "$columnProductName LIKE '%$key%' GROUP BY $columnProductName");
   }
 
   Future<List<Map<String, dynamic>>> queryRowsProductstyle(key) async {
     Database? db = await instance.database;
     return await db!.query(table,
         where:
-            "$columnProduct_Style LIKE '%$key%' GROUP BY $columnProduct_Style");
+            "$columnProductStyle LIKE '%$key%' GROUP BY $columnProductStyle");
   }
 
   // All of the methods (insert, query, update, delete) can also be done using
@@ -108,12 +108,13 @@ class DatabaseHelper {
     return await db!.update(
         table,
         {
-          'brand': products.brand,
-          'product_name': products.product_name,
-          'product_style': products.product_style,
-          'produceDate': products.produceDate,
-          'openDate': products.openDate,
-          'outDate': products.outDate
+          columnBrand: products.brand,
+          columnProductName: products.productName,
+          columnProductStyle: products.productStyle,
+          columnProduceDate: products.produceDate,
+          columnOpenDate: products.openDate,
+          columnOutDate: products.outDate,
+          columnImage: products.image
         },
         where: '$columnId = ?',
         whereArgs: [id]);

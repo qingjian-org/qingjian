@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:adobe_xd/pinned.dart';
-import './XD.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'product_info.dart';
-// import 'temp.dart';
+import 'product_add.dart';
+import 'DatabaseHelper.dart';
+import 'package:adobe_xd/pinned.dart';
 
 class MakeUpTable extends StatefulWidget {
   @override
@@ -38,7 +38,11 @@ class _MakeUpTableState extends State<MakeUpTable> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => XD()));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ProductAddPage(
+                          restorationId: 'main',
+                        )));
           },
           child: AddMakeUpButton(),
         ),
@@ -48,7 +52,7 @@ class _MakeUpTableState extends State<MakeUpTable> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Container(
+              SizedBox(
                   height: 100,
                   child: Align(
                     alignment: Alignment.bottomCenter,
@@ -72,19 +76,19 @@ class _MakeUpTableState extends State<MakeUpTable> {
                               transition: LinkTransition.Fade,
                               ease: Curves.easeOut,
                               duration: 0.3,
-                              pageBuilder: () => XD(),
+                              pageBuilder: () => const ProductInfoPage(),
                             ),
                           ],
-                          child: Text(
+                          child: const Text(
                             '产品柜',
                             style: TextStyle(
                               fontFamily: 'Microsoft Yi Baiti',
                               fontSize: 35,
-                              color: const Color(0xff06241a),
+                              color: Color(0xff06241a),
                               height: 0.5714285714285714,
                               shadows: [
                                 Shadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 )
@@ -108,17 +112,25 @@ class _MakeUpTableState extends State<MakeUpTable> {
                       ],
                     ),
                   )),
-              SvgPicture.string(
-                _svg_bfeg7j,
-                allowDrawingOutsideViewBox: true,
-                fit: BoxFit.fill,
+              const Divider(
+                color: Color.fromARGB(255, 84, 82, 82),
               ),
               Container(
                 width: 370,
+                decoration: const BoxDecoration(
+                  color: Color(0xffd0e7ef),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x29000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    ),
+                  ],
+                ),
                 child: IntrinsicHeight(
                   child: Row(children: [
                     expanded
-                        ? Container(
+                        ? SizedBox(
                             width: 293.5,
                             height: 50,
                             child: ListView.separated(
@@ -132,7 +144,7 @@ class _MakeUpTableState extends State<MakeUpTable> {
                                 );
                               },
                             ))
-                        : Container(
+                        : SizedBox(
                             width: 293.5,
                             child: Wrap(
                               alignment: WrapAlignment.start,
@@ -160,113 +172,10 @@ class _MakeUpTableState extends State<MakeUpTable> {
                     ),
                   ]),
                 ),
-                decoration: BoxDecoration(
-                  color: const Color(0xffd0e7ef),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0x29000000),
-                      offset: Offset(0, 3),
-                      blurRadius: 6,
-                    ),
-                  ],
-                ),
               ),
-              SvgPicture.string(
-                _svg_rvpfhl,
-                allowDrawingOutsideViewBox: true,
-                fit: BoxFit.fill,
+              const Divider(
+                color: Color.fromARGB(255, 84, 82, 82),
               ),
-              // )
-              // Pinned.fromPins(
-              //     Pin(size: 293.5, start: 39.5), Pin(size: 100.0, middle: 0.2223),
-              //     child: ,
-              // Pinned.fromPins(
-              //   Pin(start: 29.0, end: 26.0),
-              //   Pin(size: 9.0, middle: 0.2789),
-              //   child: Container(
-              //     color: const Color(0xfff1fbff),
-              //   ),
-              // ),
-              // Pinned.fromPins(
-              //   Pin(start: 31.0, end: 26.0),
-              //   Pin(size: 9.0, middle: 0.3722),
-              //   child: Container(
-              //     color: const Color(0xfff1fbff),
-              //   ),
-              // ),
-              // Pinned.fromPins(
-              //   Pin(start: 27.0, end: 26.0),
-              //   Pin(size: 9.0, end: 127.0),
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //       color: const Color(0xfff1fbff),
-              //       boxShadow: [
-              //         BoxShadow(
-              //           color: const Color(0x29000000),
-              //           offset: Offset(0, 3),
-              //           blurRadius: 6,
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              // Pinned.fromPins(
-              //   Pin(size: 537.0, start: -237.0),
-              //   Pin(size: 9.0, middle: 0.5086),
-              //   child: Transform.rotate(
-              //     angle: 1.5708,
-              //     child: Container(
-              //       color: const Color(0xfff1fbff),
-              //     ),
-              //   ),
-              // ),
-              // Pinned.fromPins(
-              //   Pin(start: 36.0, end: 33.0),
-              //   Pin(size: 68.1, middle: 0.2105),
-              //   child: Stack(
-              //     children: <Widget>[
-              //       SizedBox.expand(
-              //           child: SvgPicture.string(
-              //         _svg_c4uwwq,
-              //         allowDrawingOutsideViewBox: true,
-              //         fit: BoxFit.fill,
-              //       )),
-              //       Pinned.fromPins(
-              //         Pin(start: 0.0, end: 0.7),
-              //         Pin(size: 2.6, end: 0.0),
-              //         child: SvgPicture.string(
-              //           _svg_yqr7ya,
-              //           allowDrawingOutsideViewBox: true,
-              //           fit: BoxFit.fill,
-              //         ),
-              //       ),
-              //       Pinned.fromPins(
-              //         Pin(size: 2.0, end: 45.0),
-              //         Pin(start: 0.1, end: 0.0),
-              //         child: Container(
-              //           color: const Color(0xffbae4e0),
-              //         ),
-              //       ),
-              //       Pinned.fromPins(
-              //         Pin(size: 2.0, end: 36.0),
-              //         Pin(start: 0.1, end: 0.0),
-              //         child: Container(
-              //           color: const Color(0xffbae4e0),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // Pinned.fromPins(
-              //   Pin(size: 546.0, end: -198.5),
-              //   Pin(size: 7.0, middle: 0.5141),
-              //   child: Transform.rotate(
-              //     angle: 1.5708,
-              //     child: Container(
-              //       color: const Color(0xfff1fbff),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         )
@@ -376,38 +285,38 @@ class AddMakeUpButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(alignment: Alignment.center, children: [
       Container(
-        child: SizedBox(width: 60, height: 60),
-        decoration: BoxDecoration(
-          color: const Color(0xffff0d1d),
+        decoration: const BoxDecoration(
+          color: Color(0xffff0d1d),
           borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
           boxShadow: [
             BoxShadow(
-              color: const Color(0x29000000),
+              color: Color(0x29000000),
               offset: Offset(0, 3),
               blurRadius: 6,
             ),
           ],
         ),
+        child: const SizedBox(width: 60, height: 60),
       ),
       SizedBox(
-        child: Container(
-          decoration: BoxDecoration(
-            color: const Color(0xffffffff),
-            borderRadius: BorderRadius.circular(4.0),
-          ),
-        ),
         width: 13.0,
         height: 33.0,
-      ),
-      SizedBox(
         child: Container(
           decoration: BoxDecoration(
             color: const Color(0xffffffff),
             borderRadius: BorderRadius.circular(4.0),
           ),
         ),
+      ),
+      SizedBox(
         width: 33.0,
         height: 13.0,
+        child: Container(
+          decoration: BoxDecoration(
+            color: const Color(0xffffffff),
+            borderRadius: BorderRadius.circular(4.0),
+          ),
+        ),
       ),
       SvgPicture.string(
         _svg_sypfve,
@@ -419,13 +328,14 @@ class AddMakeUpButton extends StatelessWidget {
 }
 
 class ProductInfoButton extends StatelessWidget {
-  ProductInfoButton(@required this.image);
+  const ProductInfoButton(this.image);
   final AssetImage image;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => XD()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ProductInfoPage()));
       },
       child: Container(
         width: 39,
@@ -437,9 +347,9 @@ class ProductInfoButton extends StatelessWidget {
           ),
           // borderRadius: BorderRadius.circular(21.0),
           shape: BoxShape.circle,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
-              color: const Color(0x29000000),
+              color: Color(0x29000000),
               offset: Offset(0, 3),
               blurRadius: 6,
             ),

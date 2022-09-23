@@ -286,7 +286,7 @@ class _CommunityPageState extends State<CommunityPages> {
     });
     focusNodeBrand.addListener(() {
       if (focusNodeBrand.hasFocus) {
-        overlayEntryBrand = createSelectPopupWindow_Brand();
+        overlayEntryBrand = createSelectPopupWindowBrand();
         Overlay.of(context)!.insert(overlayEntryBrand);
       } else {
         overlayEntryBrand.remove();
@@ -306,7 +306,7 @@ class _CommunityPageState extends State<CommunityPages> {
      * 利用Overlay实现PopupWindow效果，悬浮的widget
      * 利用CompositedTransformFollower和CompositedTransformTarget
      */
-  OverlayEntry createSelectPopupWindow_Brand() {
+  OverlayEntry createSelectPopupWindowBrand() {
     RenderBox renderBox = context.findRenderObject() as RenderBox;
     // ignore: unused_local_variable
     var size = renderBox.size;
@@ -317,7 +317,7 @@ class _CommunityPageState extends State<CommunityPages> {
               width: 173,
               child: new CompositedTransformFollower(
                 offset: const Offset(0.0, 10),
-                link: this.layerLink,
+                link: layerLink,
                 child: new Material(
                   child: new Container(
                       height: 120,
@@ -383,7 +383,7 @@ class _CommunityPageState extends State<CommunityPages> {
                   child: new Container(
                       height: 120,
                       width: 173,
-                      color: Color.fromARGB(255, 247, 247, 247),
+                      color: const Color.fromARGB(255, 247, 247, 247),
                       child: ListView.builder(
                           padding: const EdgeInsets.all(2),
                           itemCount: productsByName.length,
@@ -395,7 +395,7 @@ class _CommunityPageState extends State<CommunityPages> {
                                 child: Center(
                                   child: TextButton(
                                     child: Text(
-                                      '${productsByName[index].product_name}',
+                                      '${productsByName[index].productName}',
                                       style: const TextStyle(
                                         fontFamily: 'Perpetua',
                                         fontSize: 14,
@@ -413,7 +413,7 @@ class _CommunityPageState extends State<CommunityPages> {
                                     onPressed: () {
                                       setState(() {
                                         product_nameControl.text =
-                                            productsByName[index].product_name!;
+                                            productsByName[index].productName!;
                                         // ignore: avoid_print
                                         print(product_nameControl.text);
                                         focusNodeProductname.unfocus();
@@ -456,7 +456,7 @@ class _CommunityPageState extends State<CommunityPages> {
                                 child: Center(
                                   child: TextButton(
                                     child: Text(
-                                      '${productsByName[index].product_style}',
+                                      '${productsByName[index].productStyle}',
                                       style: const TextStyle(
                                         fontFamily: 'Perpetua',
                                         fontSize: 14,
@@ -474,8 +474,7 @@ class _CommunityPageState extends State<CommunityPages> {
                                     onPressed: () {
                                       setState(() {
                                         product_styleControl.text =
-                                            productsByName[index]
-                                                .product_style!;
+                                            productsByName[index].productStyle!;
                                         // ignore: avoid_print
                                         print(product_styleControl.text);
                                         focusNodeProductstyle.unfocus();

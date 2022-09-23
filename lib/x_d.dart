@@ -1295,8 +1295,8 @@ class _XDState extends State<XD> {
     // row to insert
     Map<String, dynamic> row = {
       DatabaseHelper.columnBrand: brand,
-      DatabaseHelper.columnProduct_Name: product_name,
-      DatabaseHelper.columnProduct_Style: product_style
+      DatabaseHelper.columnProductName: product_name,
+      DatabaseHelper.columnProductStyle: product_style
     };
     Products products = Products.fromMap(row);
     final id = await dbHelper.insert(products);
