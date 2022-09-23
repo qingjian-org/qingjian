@@ -76,7 +76,7 @@ class _MakeUpTableState extends State<MakeUpTable> {
                               transition: LinkTransition.Fade,
                               ease: Curves.easeOut,
                               duration: 0.3,
-                              pageBuilder: () => const ProductInfoPage(),
+                              pageBuilder: () => const ProductAddPage(),
                             ),
                           ],
                           child: const Text(
@@ -335,7 +335,7 @@ class ProductInfoButton extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ProductInfoPage()));
+            MaterialPageRoute(builder: (context) => const ProductAddPage()));
       },
       child: Container(
         width: 39,
