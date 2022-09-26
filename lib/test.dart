@@ -195,10 +195,10 @@ class _DataBaseState extends State<DataBase> with RestorationMixin {
                   );
                 }
                 return SizedBox(
-                  height: 100,
+                  height: 180,
                   child: Center(
                     child: Text(
-                      '[${products[index].id}] ${products[index].brand} - ${products[index].productName} - ${products[index].productStyle}- ${products[index].produceDate}- ${products[index].openDate}- ${products[index].outDate}',
+                      '[${products[index].id}] ${products[index].brand} - ${products[index].productName} - ${products[index].productStyle}- ${products[index].produceDate}- ${products[index].openDate}- ${products[index].outDate}-${products[index].image}',
                       style: const TextStyle(fontSize: 18),
                     ),
                   ),

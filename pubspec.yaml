@@ -42,6 +42,9 @@ dependencies:
   date_format: ^2.0.6
   intl: ^0.17.0
 
+  image_picker: ^0.8.5+3
+  path_provider: ^2.0.11
+
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +76,7 @@ flutter:
     - assets/images/3.png
     - assets/images/4.png
     - images/product_add/product1.jpg
+    - images/product_add/background.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

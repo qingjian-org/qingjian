@@ -13,7 +13,7 @@ class DatabaseHelper {
   static const columnProduceDate = 'produceDate'; //生产日期
   static const columnOpenDate = 'openDate'; //启动日期
   static const columnOutDate = 'outDate'; //到期日期
-  static const columnImage = 'image';
+  static const columnImage = 'image'; //上传图片
   DatabaseHelper._privateConstructor();
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
   static Database? _database;
