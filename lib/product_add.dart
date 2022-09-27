@@ -422,19 +422,36 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                   width: 40,
                                   // ignore: sort_child_properties_last
                                   child: image == null
-                                      ? const Icon(
-                                          Icons.add,
-                                          size: 80,
+                                      ? const Center(
+                                          child: Text(
+                                            '点击添加图片',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontFamily: 'Perpetua',
+                                              fontSize: 14,
+                                              color: Color(0xffffffff),
+                                              shadows: [
+                                                Shadow(
+                                                  color: Color(0x29000000),
+                                                  offset: Offset(0, 3),
+                                                  blurRadius: 6,
+                                                )
+                                              ],
+                                            ),
+                                          ),
                                         )
                                       : Image.file(image!),
                                   decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: 2.0,
-                                        color:
-                                            Color.fromARGB(255, 153, 144, 143),
+                                    color: const Color(0x6ea7a7a7),
+                                    borderRadius: BorderRadius.circular(27.0),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        color: Color(0x12066477),
+                                        offset: Offset(0, 6),
+                                        blurRadius: 5,
                                       ),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(8.0))),
+                                    ],
+                                  ),
                                 ),
                               )),
                         ),
@@ -450,10 +467,20 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                 Expanded(
                                   flex: 2,
                                   child: Text(
-                                    "品牌名:",
-                                    style: (TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold)),
+                                    '品牌',
+                                    style: TextStyle(
+                                      fontFamily: 'Perpetua',
+                                      fontSize: 14,
+                                      color: Color(0xff000000),
+                                      fontWeight: FontWeight.w700,
+                                      shadows: [
+                                        Shadow(
+                                          color: Color(0x29000000),
+                                          offset: Offset(0, 3),
+                                          blurRadius: 6,
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 )
                               ]),
@@ -529,11 +556,25 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                               ),
                               Row(children: const <Widget>[
                                 Expanded(
-                                    flex: 2,
-                                    child: Text("产品名:",
-                                        style: (TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold)))),
+                                  flex: 2,
+                                  child: Text(
+                                    '产品名',
+                                    style: TextStyle(
+                                      fontFamily: 'Perpetua',
+                                      fontSize: 14,
+                                      color: Color(0xff000000),
+                                      fontWeight: FontWeight.w700,
+                                      shadows: [
+                                        Shadow(
+                                          color: Color(0x29000000),
+                                          offset: Offset(0, 3),
+                                          blurRadius: 6,
+                                        )
+                                      ],
+                                    ),
+                                    // textAlign: TextAlign.center,
+                                  ),
+                                ),
                               ]),
                               Row(children: <Widget>[
                                 Expanded(
@@ -606,11 +647,25 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                               ]),
                               Row(children: const <Widget>[
                                 Expanded(
-                                    flex: 2,
-                                    child: Text("产品类型:",
-                                        style: (TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold)))),
+                                  flex: 2,
+                                  child: Text(
+                                    '产品类型',
+                                    style: TextStyle(
+                                      fontFamily: 'Perpetua',
+                                      fontSize: 14,
+                                      color: Color(0xff000000),
+                                      fontWeight: FontWeight.w700,
+                                      shadows: [
+                                        Shadow(
+                                          color: Color(0x29000000),
+                                          offset: Offset(0, 3),
+                                          blurRadius: 6,
+                                        )
+                                      ],
+                                    ),
+                                    // textAlign: TextAlign.center,
+                                  ),
+                                ),
                               ]),
                               Row(
                                 children: <Widget>[
@@ -691,86 +746,90 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                   )),
                               Expanded(
                                   flex: 3,
-                                  child: OutlinedButton(
-                                      onPressed: () {
-                                        _restorableProduceDatePickerRouteFuture
-                                            .present();
-                                      },
-                                      child: SizedBox(
-                                        width: 177.0,
-                                        height: 19.0,
-                                        child: Text.rich(
-                                          TextSpan(
-                                            style: const TextStyle(
-                                              fontFamily: 'Arial',
-                                              fontSize: 14,
-                                              color: Color(0xff818080),
-                                              letterSpacing: 2.8000000000000003,
-                                              shadows: [
-                                                Shadow(
-                                                  color: Color(0x29000000),
-                                                  offset: Offset(0, 3),
-                                                  blurRadius: 6,
-                                                )
+                                  child: Padding(
+                                    padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                                    child: OutlinedButton(
+                                        onPressed: () {
+                                          _restorableProduceDatePickerRouteFuture
+                                              .present();
+                                        },
+                                        child: SizedBox(
+                                          width: 177.0,
+                                          height: 19.0,
+                                          child: Text.rich(
+                                            TextSpan(
+                                              style: const TextStyle(
+                                                fontFamily: 'Arial',
+                                                fontSize: 14,
+                                                color: Color(0xff818080),
+                                                letterSpacing:
+                                                    2.8000000000000003,
+                                                shadows: [
+                                                  Shadow(
+                                                    color: Color(0x29000000),
+                                                    offset: Offset(0, 3),
+                                                    blurRadius: 6,
+                                                  )
+                                                ],
+                                              ),
+                                              children: [
+                                                TextSpan(
+                                                  text: _produceDate.value.year
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '年   ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: _produceDate.value.month
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    letterSpacing: 2.24,
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '月 ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: ' ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: _produceDate.value.day
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    letterSpacing: 2.24,
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '日',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
                                               ],
                                             ),
-                                            children: [
-                                              TextSpan(
-                                                text: _produceDate.value.year
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '年   ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: _produceDate.value.month
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  letterSpacing: 2.24,
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '月 ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: ' ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: _produceDate.value.day
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  letterSpacing: 2.24,
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '日',
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                            ],
+                                            textHeightBehavior:
+                                                const TextHeightBehavior(
+                                                    applyHeightToFirstAscent:
+                                                        false),
+                                            textAlign: TextAlign.center,
                                           ),
-                                          textHeightBehavior:
-                                              const TextHeightBehavior(
-                                                  applyHeightToFirstAscent:
-                                                      false),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ))),
+                                        )),
+                                  )),
                             ],
                           ),
                           const SizedBox(height: 10),
@@ -802,87 +861,91 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                     ),
                                   )),
                               Expanded(
-                                  flex: 3,
-                                  child: OutlinedButton(
-                                      onPressed: () {
-                                        _restorableOpenDatePickerRouteFuture
-                                            .present();
-                                      },
-                                      child: SizedBox(
-                                        width: 177.0,
-                                        height: 19.0,
-                                        child: Text.rich(
-                                          TextSpan(
-                                            style: const TextStyle(
-                                              fontFamily: 'Arial',
-                                              fontSize: 14,
-                                              color: Color(0xff818080),
-                                              letterSpacing: 2.8000000000000003,
-                                              shadows: [
-                                                Shadow(
-                                                  color: Color(0x29000000),
-                                                  offset: Offset(0, 3),
-                                                  blurRadius: 6,
-                                                )
+                                flex: 3,
+                                child: Padding(
+                                    padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                                    child: OutlinedButton(
+                                        onPressed: () {
+                                          _restorableOpenDatePickerRouteFuture
+                                              .present();
+                                        },
+                                        child: SizedBox(
+                                          width: 177.0,
+                                          height: 19.0,
+                                          child: Text.rich(
+                                            TextSpan(
+                                              style: const TextStyle(
+                                                fontFamily: 'Arial',
+                                                fontSize: 14,
+                                                color: Color(0xff818080),
+                                                letterSpacing:
+                                                    2.8000000000000003,
+                                                shadows: [
+                                                  Shadow(
+                                                    color: Color(0x29000000),
+                                                    offset: Offset(0, 3),
+                                                    blurRadius: 6,
+                                                  )
+                                                ],
+                                              ),
+                                              children: [
+                                                TextSpan(
+                                                  text: _openDate.value.year
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '年   ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: _openDate.value.month
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    letterSpacing: 2.24,
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '月 ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: ' ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: _openDate.value.day
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    letterSpacing: 2.24,
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '日',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
                                               ],
                                             ),
-                                            children: [
-                                              TextSpan(
-                                                text: _openDate.value.year
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '年   ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: _openDate.value.month
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  letterSpacing: 2.24,
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '月 ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: ' ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: _openDate.value.day
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  letterSpacing: 2.24,
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '日',
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                            ],
+                                            textHeightBehavior:
+                                                const TextHeightBehavior(
+                                                    applyHeightToFirstAscent:
+                                                        false),
+                                            textAlign: TextAlign.center,
                                           ),
-                                          textHeightBehavior:
-                                              const TextHeightBehavior(
-                                                  applyHeightToFirstAscent:
-                                                      false),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ))),
+                                        ))),
+                              )
                             ],
                           ),
                           const SizedBox(height: 10),
@@ -914,87 +977,91 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                     ),
                                   )),
                               Expanded(
-                                  flex: 3,
-                                  child: OutlinedButton(
-                                      onPressed: () {
-                                        _restorableOutDatePickerRouteFuture
-                                            .present();
-                                      },
-                                      child: SizedBox(
-                                        width: 177.0,
-                                        height: 19.0,
-                                        child: Text.rich(
-                                          TextSpan(
-                                            style: const TextStyle(
-                                              fontFamily: 'Arial',
-                                              fontSize: 14,
-                                              color: Color(0xff818080),
-                                              letterSpacing: 2.8000000000000003,
-                                              shadows: [
-                                                Shadow(
-                                                  color: Color(0x29000000),
-                                                  offset: Offset(0, 3),
-                                                  blurRadius: 6,
-                                                )
+                                flex: 3,
+                                child: Padding(
+                                    padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                                    child: OutlinedButton(
+                                        onPressed: () {
+                                          _restorableOutDatePickerRouteFuture
+                                              .present();
+                                        },
+                                        child: SizedBox(
+                                          width: 177.0,
+                                          height: 19.0,
+                                          child: Text.rich(
+                                            TextSpan(
+                                              style: const TextStyle(
+                                                fontFamily: 'Arial',
+                                                fontSize: 14,
+                                                color: Color(0xff818080),
+                                                letterSpacing:
+                                                    2.8000000000000003,
+                                                shadows: [
+                                                  Shadow(
+                                                    color: Color(0x29000000),
+                                                    offset: Offset(0, 3),
+                                                    blurRadius: 6,
+                                                  )
+                                                ],
+                                              ),
+                                              children: [
+                                                TextSpan(
+                                                  text: _outDate.value.year
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '年   ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: _outDate.value.month
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    letterSpacing: 2.24,
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '月 ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: ' ',
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: _outDate.value.day
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                    letterSpacing: 2.24,
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
+                                                const TextSpan(
+                                                  text: '日',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                                ),
                                               ],
                                             ),
-                                            children: [
-                                              TextSpan(
-                                                text: _outDate.value.year
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '年   ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: _outDate.value.month
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  letterSpacing: 2.24,
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '月 ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: ' ',
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: _outDate.value.day
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                  letterSpacing: 2.24,
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                              const TextSpan(
-                                                text: '日',
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w900,
-                                                ),
-                                              ),
-                                            ],
+                                            textHeightBehavior:
+                                                const TextHeightBehavior(
+                                                    applyHeightToFirstAscent:
+                                                        false),
+                                            textAlign: TextAlign.center,
                                           ),
-                                          textHeightBehavior:
-                                              const TextHeightBehavior(
-                                                  applyHeightToFirstAscent:
-                                                      false),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ))),
+                                        ))),
+                              )
                             ],
                           ),
                         ],
