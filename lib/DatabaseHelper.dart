@@ -51,9 +51,9 @@ class DatabaseHelper {
       columnBrand: products.brand,
       columnProductName: products.productName,
       columnProductStyle: products.productStyle,
-      columnProduceDate: products.produceDate,
-      columnOpenDate: products.openDate,
-      columnOutDate: products.outDate,
+      columnProduceDate: products.produceDate?.toIso8601String(),
+      columnOpenDate: products.openDate?.toIso8601String(),
+      columnOutDate: products.outDate?.toIso8601String(),
       columnImage: products.image
     });
     return res;
@@ -104,16 +104,16 @@ class DatabaseHelper {
 
   Future<int> update(Products products) async {
     Database? db = await instance.database;
-    int id = products.toMap()['id'];
+    int? id = products.id;
     return await db!.update(
         table,
         {
           columnBrand: products.brand,
           columnProductName: products.productName,
           columnProductStyle: products.productStyle,
-          columnProduceDate: products.produceDate,
-          columnOpenDate: products.openDate,
-          columnOutDate: products.outDate,
+          columnProduceDate: products.produceDate?.toIso8601String(),
+          columnOpenDate: products.openDate?.toIso8601String(),
+          columnOutDate: products.outDate?.toIso8601String(),
           columnImage: products.image
         },
         where: '$columnId = ?',

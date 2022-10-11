@@ -1,7 +1,11 @@
+// ignore_for_file: avoid_print, must_be_immutable
+
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'product_info.dart';
+import 'Products.dart';
 import 'product_add.dart';
 import 'DatabaseHelper.dart';
 import 'package:adobe_xd/pinned.dart';
@@ -13,270 +17,142 @@ class MakeUpTable extends StatefulWidget {
 
 class _MakeUpTableState extends State<MakeUpTable> {
   int count = 0;
-  List<AssetImage> _suggestions = <AssetImage>[
-    AssetImage('assets/images/1.png'),
-    AssetImage('assets/images/2.png'),
-    AssetImage('assets/images/1.png'),
-    AssetImage('assets/images/2.png'),
-    AssetImage('assets/images/2.png'),
-    AssetImage('assets/images/2.png'),
-    AssetImage('assets/images/2.png'),
-    AssetImage('assets/images/2.png'),
-  ];
+  DatabaseHelper dbHelper = DatabaseHelper.instance;
   bool expanded = false;
 
-  void add() {
-    setState(() {
-      count++;
-    });
+  Future<List<Products>> loadProducts() async {
+    var allRows = await dbHelper.queryAllRows();
+    List<Products> allProducts = [];
+    for (var row in allRows) {
+      allProducts.add(Products.fromMap(row));
+    }
+    return allProducts;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: const Color(0xffffffff),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ProductAddPage(
-                          restorationId: 'main',
-                        )));
-          },
-          child: AddMakeUpButton(),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(
-                  height: 100,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                            child: Row(
-                          children: [
-                            SvgPicture.string(
-                              _svg_gjm7yo,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ],
-                        )),
-                        PageLink(
-                          links: [
-                            PageLinkInfo(
-                              transition: LinkTransition.Fade,
-                              ease: Curves.easeOut,
-                              duration: 0.3,
-                              pageBuilder: () => const ProductAddPage(),
-                            ),
-                          ],
-                          child: const Text(
-                            '产品柜',
-                            style: TextStyle(
-                              fontFamily: 'Microsoft Yi Baiti',
-                              fontSize: 35,
-                              color: Color(0xff06241a),
-                              height: 0.5714285714285714,
-                              shadows: [
-                                Shadow(
-                                  color: Color(0x29000000),
-                                  offset: Offset(0, 3),
-                                  blurRadius: 6,
-                                )
-                              ],
-                            ),
-                            textHeightBehavior: TextHeightBehavior(
-                                applyHeightToFirstAscent: false),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Expanded(
-                            child: Row(
-                          children: [
-                            SvgPicture.string(
-                              _svg_x7p4t,
-                              allowDrawingOutsideViewBox: true,
-                              fit: BoxFit.fill,
-                            ),
-                          ],
-                        )),
-                      ],
-                    ),
-                  )),
-              const Divider(
-                color: Color.fromARGB(255, 84, 82, 82),
+    return FutureBuilder<List<Products>>(
+        future: loadProducts(),
+        builder:
+            (BuildContext context, AsyncSnapshot<List<Products>> snapshot) {
+          List<Products> dizhuang = [];
+          List<Products> zhexia = [];
+          List<Products> caizhuang = [];
+          List<Products>? allProducts = snapshot.data;
+          if (allProducts != null) {
+            for (Products product in allProducts) {
+              if (product.productStyle == '底妆') {
+                dizhuang.add(product);
+              } else if (product.productStyle == '遮瑕和修容') {
+                zhexia.add(product);
+              } else if (product.productStyle == '彩妆') {
+                caizhuang.add(product);
+              }
+            }
+          }
+
+          return Scaffold(
+              backgroundColor: const Color(0xffffffff),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () async {
+                  final bool? shouldRefresh = await Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => ProductAddPage(
+                              products: Products(
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  DateTime.now(),
+                                  DateTime.now(),
+                                  DateTime.now(),
+                                  null))));
+                  print(shouldRefresh);
+                  if (shouldRefresh != null) {
+                    setState(() {
+                      loadProducts();
+                    });
+                  }
+                },
+                child: AddMakeUpButton(),
               ),
-              Container(
-                width: 370,
-                decoration: const BoxDecoration(
-                  color: Color(0xffd0e7ef),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x29000000),
-                      offset: Offset(0, 3),
-                      blurRadius: 6,
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerFloat,
+              body: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    // 产品柜标题
+                    SizedBox(
+                        height: 100,
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: PageLink(
+                            links: [
+                              PageLinkInfo(
+                                transition: LinkTransition.Fade,
+                                ease: Curves.easeOut,
+                                duration: 0.3,
+                                pageBuilder: () => ProductAddPage(
+                                    products: Products(
+                                        null,
+                                        null,
+                                        null,
+                                        null,
+                                        DateTime.now(),
+                                        DateTime.now(),
+                                        DateTime.now(),
+                                        null)),
+                              ),
+                            ],
+                            child: const Text(
+                              '产品柜',
+                              style: TextStyle(
+                                fontFamily: 'Microsoft Yi Baiti',
+                                fontSize: 35,
+                                color: Color(0xff06241a),
+                                height: 0.5714285714285714,
+                                shadows: [
+                                  Shadow(
+                                    color: Color(0x29000000),
+                                    offset: Offset(0, 3),
+                                    blurRadius: 6,
+                                  )
+                                ],
+                              ),
+                              textHeightBehavior: TextHeightBehavior(
+                                  applyHeightToFirstAscent: false),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
+                    // 标题-产品柜分割线
+                    const Divider(
+                      color: Color.fromARGB(255, 84, 82, 82),
+                    ),
+                    // 底妆
+                    SubTitle(subTitle: '底妆'),
+                    Shelf(products: dizhuang),
+                    const Divider(
+                      color: Color.fromARGB(255, 84, 82, 82),
+                    ),
+                    // 遮瑕和修容
+                    SubTitle(subTitle: '遮瑕和修容'),
+                    Shelf(products: zhexia),
+                    const Divider(
+                      color: Color.fromARGB(255, 84, 82, 82),
+                    ),
+                    // 彩妆
+                    SubTitle(subTitle: '彩妆'),
+                    Shelf(products: caizhuang),
+                    const Divider(
+                      color: Color.fromARGB(255, 84, 82, 82),
                     ),
                   ],
                 ),
-                child: IntrinsicHeight(
-                  child: Row(children: [
-                    expanded
-                        ? SizedBox(
-                            width: 293.5,
-                            height: 50,
-                            child: ListView.separated(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: _suggestions.length,
-                              itemBuilder: (context, index) =>
-                                  ProductInfoButton(_suggestions[index]),
-                              separatorBuilder: (context, index) {
-                                return const SizedBox(
-                                  width: 5,
-                                );
-                              },
-                            ))
-                        : SizedBox(
-                            width: 293.5,
-                            child: Wrap(
-                              alignment: WrapAlignment.start,
-                              spacing: 5.0,
-                              runSpacing: 10.0,
-                              children: List.generate(
-                                  _suggestions.length,
-                                  (index) =>
-                                      ProductInfoButton(_suggestions[index])),
-                            )),
-                    Container(
-                      color: Colors.white,
-                      width: 10,
-                    ),
-                    IconButton(
-                      alignment: Alignment.topCenter,
-                      icon: expanded
-                          ? const Icon(Icons.expand_more)
-                          : const Icon(Icons.expand_less),
-                      onPressed: () {
-                        setState(() {
-                          expanded = !expanded;
-                        });
-                      },
-                    ),
-                  ]),
-                ),
-              ),
-              const Divider(
-                color: Color.fromARGB(255, 84, 82, 82),
-              ),
-            ],
-          ),
-        )
-
-        // body: Center(
-        //   child: Row(
-        //     children: [
-        //       Expanded(
-        //         child: expanded
-        //             ? SizedBox(
-        //                 height: 100,
-        //                 child: ListView.separated(
-        //                   shrinkWrap: true,
-        //                   scrollDirection: Axis.horizontal,
-        //                   itemCount: _suggestions.length + 1,
-        //                   itemBuilder: (context, index) => index != 0
-        //                       ? SizedBox(
-        //                           width: 100,
-        //                           height: 100,
-        //                           // color: ,
-        //                           child: ElevatedButton(
-        //                             style: ElevatedButton.styleFrom(
-        //                                 primary: Colors.purple[600]),
-        //                             onPressed: () {},
-        //                             child: Center(
-        //                                 child: Column(
-        //                               children: [
-        //                                 const Icon(
-        //                                   Icons.cleaning_services_rounded,
-        //                                   size: 75,
-        //                                 ),
-        //                                 Text(
-        //                                   _suggestions[index - 1],
-        //                                   style: const TextStyle(
-        //                                       fontSize: 10, color: Colors.white),
-        //                                 )
-        //                               ],
-        //                             )),
-        //                           ))
-        //                       : const Icon(
-        //                           Icons.add_box_rounded,
-        //                           size: 100,
-        //                         ),
-        //                   separatorBuilder: (context, index) {
-        //                     return const SizedBox(
-        //                       width: 5,
-        //                     );
-        //                   },
-        //                 ))
-        //             : Wrap(
-        //                 alignment: WrapAlignment.center,
-        //                 spacing: 10.0,
-        //                 runSpacing: 20.0,
-        //                 children: List.generate(
-        //                     _suggestions.length + 1,
-        //                     (index) => index != 0
-        //                         ? SizedBox(
-        //                             width: 100,
-        //                             height: 100,
-        //                             // color: ,
-        //                             child: ElevatedButton(
-        //                               style: ElevatedButton.styleFrom(
-        //                                   primary: Colors.purple[600]),
-        //                               onPressed: () {},
-        //                               child: Center(
-        //                                   child: Column(
-        //                                 children: [
-        //                                   const Icon(
-        //                                     Icons.cleaning_services_rounded,
-        //                                     size: 75,
-        //                                   ),
-        //                                   Text(
-        //                                     _suggestions[index - 1],
-        //                                     style: const TextStyle(
-        //                                         fontSize: 10,
-        //                                         color: Colors.white),
-        //                                   )
-        //                                 ],
-        //                               )),
-        //                             ))
-        //                         : const Icon(
-        //                             Icons.add_box_rounded,
-        //                             size: 100,
-        //                           )),
-        //               ),
-        //       ),
-        //       IconButton(
-        //         alignment: Alignment.topCenter,
-        //         icon: expanded
-        //             ? const Icon(Icons.expand_more)
-        //             : const Icon(Icons.expand_less),
-        //         onPressed: () {
-        //           setState(() {
-        //             expanded = !expanded;
-        //           });
-        //         },
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        );
+              ));
+        });
   }
 }
 
@@ -327,22 +203,58 @@ class AddMakeUpButton extends StatelessWidget {
   }
 }
 
+class SubTitle extends StatelessWidget {
+  SubTitle({Key? key, required this.subTitle}) : super(key: key);
+  String subTitle = '';
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 30,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            subTitle,
+            style: const TextStyle(
+              fontFamily: 'Microsoft Yi Baiti',
+              fontSize: 20,
+              color: Color(0xff06241a),
+              height: 0.5714285714285714,
+              shadows: [
+                Shadow(
+                  color: Color(0x29000000),
+                  offset: Offset(0, 3),
+                  blurRadius: 6,
+                )
+              ],
+            ),
+            textHeightBehavior:
+                const TextHeightBehavior(applyHeightToFirstAscent: false),
+            textAlign: TextAlign.center,
+          ),
+        ));
+  }
+}
+
 class ProductInfoButton extends StatelessWidget {
-  const ProductInfoButton(this.image);
-  final AssetImage image;
+  const ProductInfoButton(this.productInfo);
+  final Products productInfo;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ProductAddPage()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProductAddPage(
+                      products: productInfo,
+                    )));
       },
       child: Container(
         width: 39,
         height: 39,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: image,
+            image: Image.file(File(productInfo.image!)).image,
             fit: BoxFit.cover,
           ),
           // borderRadius: BorderRadius.circular(21.0),
@@ -356,6 +268,76 @@ class ProductInfoButton extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class Shelf extends StatefulWidget {
+  const Shelf({Key? key, required this.products}) : super(key: key);
+  final List<Products> products;
+
+  @override
+  _ShelfState createState() => _ShelfState();
+}
+
+class _ShelfState extends State<Shelf> {
+  bool expanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 370,
+      decoration: const BoxDecoration(
+        color: Color(0xffd0e7ef),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x29000000),
+            offset: Offset(0, 3),
+            blurRadius: 6,
+          ),
+        ],
+      ),
+      child: Row(children: [
+        expanded
+            ? SizedBox(
+                width: 293.5,
+                height: 50,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: widget.products.length,
+                  itemBuilder: (context, index) =>
+                      ProductInfoButton(widget.products[index]),
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 5,
+                    );
+                  },
+                ))
+            : SizedBox(
+                width: 293.5,
+                child: Wrap(
+                  alignment: WrapAlignment.start,
+                  spacing: 5.0,
+                  runSpacing: 10.0,
+                  children: List.generate(widget.products.length,
+                      (index) => ProductInfoButton(widget.products[index])),
+                )),
+        Container(
+          color: Colors.white,
+          width: 10,
+        ),
+        IconButton(
+          alignment: Alignment.topCenter,
+          icon: expanded
+              ? const Icon(Icons.expand_more)
+              : const Icon(Icons.expand_less),
+          onPressed: () {
+            setState(() {
+              expanded = !expanded;
+            });
+          },
+        ),
+      ]),
     );
   }
 }

@@ -1,15 +1,18 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, use_build_context_synchronously, avoid_function_literals_in_foreach_calls, unused_local_variable, avoid_print
 
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'DatabaseHelper.dart';
 import 'Products.dart';
+import 'package:path_provider/path_provider.dart';
 
 class ProductAddPage extends StatefulWidget {
-  const ProductAddPage({Key? key, this.restorationId}) : super(key: key);
+  const ProductAddPage({Key? key, this.restorationId, required this.products})
+      : super(key: key);
 
   final String? restorationId;
+  final Products products;
   @override
   _ProductAddState createState() => _ProductAddState();
 }
@@ -36,7 +39,6 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
   //   '粉底液',
   //   '气垫',
   // ];
-  List<Products> products = [];
   List<Products> productsByName = [];
   var map = {};
 
@@ -44,21 +46,8 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
   TextEditingController productNameControl = TextEditingController();
   TextEditingController productStyleControl = TextEditingController();
 
-  void _querybrand(key) async {
-    //query
-    final allRows = await dbHelper.queryRowsBrand(key);
-    productsByName.clear();
-    // ignore: avoid_function_literals_in_foreach_calls
-    allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
-  }
-
-  void _queryproductname(key) async {
-    //query
-    final allRows = await dbHelper.queryRowsProductname(key);
-    productsByName.clear();
-    // ignore: avoid_function_literals_in_foreach_calls
-    allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
-  }
+  final imagePicker = ImagePicker(); //图片选择器
+  var select;
 
   FocusNode focusNodeBrand = FocusNode();
   FocusNode focusNodeProductname = FocusNode();
@@ -68,6 +57,24 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
   late OverlayEntry overlayEntryProductstyle;
 
   LayerLink layerLink = LayerLink();
+
+  late RestorableDateTime _produceDate;
+  late RestorableDateTime _openDate;
+  late RestorableDateTime _outDate;
+  void _querybrand(key) async {
+    //query
+    final allRows = await dbHelper.queryRowsBrand(key);
+    productsByName.clear();
+    allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
+  }
+
+  void _queryproductname(key) async {
+    //query
+    final allRows = await dbHelper.queryRowsProductname(key);
+    productsByName.clear();
+    allRows.forEach((row) => productsByName.add(Products.fromMap(row)));
+  }
+
   @override
   void initState() {
     super.initState();
@@ -87,11 +94,13 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
         overlayEntryBrand.remove();
       }
     });
+    _produceDate = RestorableDateTime(widget.products.produceDate!);
+    _openDate = RestorableDateTime(widget.products.openDate!);
+    _outDate = RestorableDateTime(widget.products.outDate!);
   }
 
   OverlayEntry createSelectPopupWindowBrand() {
     RenderBox renderBox = context.findRenderObject() as RenderBox;
-    // ignore: unused_local_variable
     var size = renderBox.size;
     return OverlayEntry(
         builder: (context) => Positioned(
@@ -105,7 +114,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                   child: Container(
                       height: 120,
                       width: 173,
-                      color: Color.fromRGBO(180, 222, 210, 0.5),
+                      color: const Color.fromRGBO(180, 222, 210, 0.5),
                       child: ListView.builder(
                           padding: const EdgeInsets.all(2),
                           itemCount: productsByName.length,
@@ -136,7 +145,6 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                       setState(() {
                                         brandControl.text =
                                             productsByName[index].brand!;
-                                        // ignore: avoid_print
                                         print(brandControl.text);
                                         focusNodeBrand.unfocus();
                                       });
@@ -149,10 +157,8 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
             ));
   }
 
-  // ignore: non_constant_identifier_names
   OverlayEntry createSelectPopupWindow_Productname() {
     RenderBox renderBox = context.findRenderObject() as RenderBox;
-    // ignore: unused_local_variable
     var size = renderBox.size;
     return OverlayEntry(
         builder: (context) => Positioned(
@@ -197,7 +203,6 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                       setState(() {
                                         productNameControl.text =
                                             productsByName[index].productName!;
-                                        // ignore: avoid_print
                                         print(productNameControl.text);
                                         focusNodeProductname.unfocus();
                                       });
@@ -210,18 +215,12 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
             ));
   }
 
-  String product_style = '底妆';
   var items_product_style = [
     '底妆',
     '遮瑕和修容',
     '彩妆',
   ];
 
-  final RestorableDateTime _produceDate =
-      RestorableDateTime(DateTime(2021, 7, 25));
-  final RestorableDateTime _openDate =
-      RestorableDateTime(DateTime(2021, 7, 25));
-  final RestorableDateTime _outDate = RestorableDateTime(DateTime(2021, 7, 25));
   late final RestorableRouteFuture<DateTime?>
       _restorableProduceDatePickerRouteFuture =
       RestorableRouteFuture<DateTime?>(
@@ -258,6 +257,9 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
 
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
+    // _produceDate.value = widget.products.produceDate!;
+    // _openDate.value = widget.products.openDate!;
+    // _outDate.value = widget.products.outDate!;
     registerForRestoration(_produceDate, 'produce_date');
     registerForRestoration(
         _restorableProduceDatePickerRouteFuture, 'produce_date_picker');
@@ -317,7 +319,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
           initialEntryMode: DatePickerEntryMode.calendarOnly,
           initialDate: DateTime.fromMillisecondsSinceEpoch(arguments! as int),
           firstDate: DateTime(2021),
-          lastDate: DateTime(2022),
+          lastDate: DateTime(2100),
         );
       },
     );
@@ -326,8 +328,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
   @override
   Widget build(BuildContext context) {
     DropdownButton<String> productStyleControl = DropdownButton<String>(
-      value: product_style,
-      // icon: const Icon(Icons.keyboard_arrow_down),
+      value: widget.products.productStyle,
       items: items_product_style.map((String items) {
         return DropdownMenuItem(
           value: items,
@@ -339,11 +340,19 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
       }).toList(),
       onChanged: (String? newValue) {
         setState(() {
-          product_style = newValue!;
+          widget.products.productStyle = newValue!;
           // map['产品类型'] = product_style;
         });
       },
     );
+    if (widget.products.productName != null) {
+      productNameControl.text = widget.products.productName!;
+    }
+
+    if (widget.products.brand != null) {
+      brandControl.text = widget.products.brand!;
+    }
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Container(
@@ -356,7 +365,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
             child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: Column(children: <Widget>[
-                  Container(
+                  SizedBox(
                     height: 100,
                     child: Row(
                       children: const <Widget>[
@@ -421,7 +430,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                   height: 160,
                                   width: 40,
                                   // ignore: sort_child_properties_last
-                                  child: image == null
+                                  child: widget.products.image == null
                                       ? const Center(
                                           child: Text(
                                             '点击添加图片',
@@ -440,7 +449,8 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                             ),
                                           ),
                                         )
-                                      : Image.file(image!),
+                                      : Image.file(
+                                          File(widget.products.image!)),
                                   decoration: BoxDecoration(
                                     color: const Color(0x6ea7a7a7),
                                     borderRadius: BorderRadius.circular(27.0),
@@ -455,12 +465,12 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                 ),
                               )),
                         ),
-                        // const SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Expanded(
                           flex: 4,
                           child: Column(
                             children: <Widget>[
-                              new Container(
+                              Container(
                                 height: 20,
                               ),
                               Row(children: const <Widget>[
@@ -698,7 +708,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                     ),
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   //第二部分
                   Container(
@@ -747,7 +757,8 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                               Expanded(
                                   flex: 3,
                                   child: Padding(
-                                    padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(10, 0, 20, 0),
                                     child: OutlinedButton(
                                         onPressed: () {
                                           _restorableProduceDatePickerRouteFuture
@@ -863,7 +874,8 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                               Expanded(
                                 flex: 3,
                                 child: Padding(
-                                    padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(10, 0, 20, 0),
                                     child: OutlinedButton(
                                         onPressed: () {
                                           _restorableOpenDatePickerRouteFuture
@@ -1066,10 +1078,10 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                           ),
                         ],
                       )),
-                  SizedBox(height: 20),
-                  // const Divider(
-                  //   color: Color.fromARGB(255, 84, 82, 82),
-                  // ),
+                  const SizedBox(height: 20),
+                  const Divider(
+                    color: Color.fromARGB(255, 84, 82, 82),
+                  ),
                   //第三部分
                   Container(
                     height: 90,
@@ -1099,7 +1111,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                           )),
                       Expanded(
                           flex: 3,
-                          child: Wrap(
+                          child: Row(
                             children: const <Widget>[
                               Expanded(
                                   child: Padding(
@@ -1245,27 +1257,25 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                   //         ]))
                   //   ],
                   // ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   //第四部分
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       ElevatedButton(
                         onPressed: () {
-                          String ProduceDate = _produceDate.value.toString();
-                          String OpenDate = _openDate.value.toString();
-                          String OutDate = _outDate.value.toString();
-                          String brand_name = brandControl.text;
-                          String product_name = productNameControl.text;
-                          _insert(
-                            brand_name,
-                            product_name,
-                            product_style,
-                            ProduceDate,
-                            OpenDate,
-                            OutDate,
-                            image,
-                          );
+                          widget.products.produceDate = _produceDate.value;
+                          widget.products.openDate = _openDate.value;
+                          widget.products.outDate = _outDate.value;
+                          widget.products.brand = brandControl.text;
+                          widget.products.productName = productNameControl.text;
+                          if (widget.products.id == null) {
+                            _insert_product();
+                          } else {
+                            _update_product();
+                          }
+
+                          Navigator.of(context).pop(true);
                         },
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size(120, 40),
@@ -1280,31 +1290,24 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                 ]))));
   }
 
-  void _insert(brand, productName, productStyle, produceDate, openDate, outDate,
-      image) async {
-    // row to insert
-    Map<String, dynamic> row = {
-      DatabaseHelper.columnBrand: brand,
-      DatabaseHelper.columnProductName: productName,
-      DatabaseHelper.columnProductStyle: productStyle,
-      DatabaseHelper.columnProduceDate: produceDate.toString(),
-      DatabaseHelper.columnOpenDate: openDate.toString(),
-      DatabaseHelper.columnOutDate: outDate.toString(),
-      DatabaseHelper.columnImage: image.toString(),
-    };
-    Products products = Products.fromMap(row);
-    final id = await dbHelper.insert(products);
+  void _insert_product() async {
+    final id = await dbHelper.insert(widget.products);
+    widget.products.id = id;
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text('inserted row id: $id'),
+    ));
+  }
+
+  void _update_product() async {
+    final id = await dbHelper.update(widget.products);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('updated row id: $id'),
     ));
   }
 
   @override
   String? get restorationId => widget.restorationId;
 
-  File? image;
-  final imagePicker = ImagePicker(); //图片选择器
-  var select;
   void _modelBottomSheet() async {
     select = await showModalBottomSheet(
         context: context,
@@ -1337,14 +1340,22 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
           );
         });
     print(select);
-    print(image);
+    print(widget.products.image);
   }
 
   Future getImage() async {
-    final _image = await imagePicker.pickImage(
+    final XFile? _image = await imagePicker.pickImage(
         source: select == "相册" ? ImageSource.gallery : ImageSource.camera);
+    if (_image == null) {
+      return;
+    }
+    final Directory directory = await getApplicationDocumentsDirectory();
+    final String dir_path = directory.path;
+    final now = DateTime.now().toString();
+    final String save_path = '$dir_path/$now.jpg';
+    _image.saveTo(save_path);
     setState(() {
-      image = File(_image!.path);
+      widget.products.image = save_path;
     });
   }
 }

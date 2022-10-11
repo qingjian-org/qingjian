@@ -5,9 +5,9 @@ class Products {
   String? brand;
   String? productName;
   String? productStyle;
-  String? produceDate;
-  String? openDate;
-  String? outDate;
+  DateTime? produceDate;
+  DateTime? openDate;
+  DateTime? outDate;
   String? image;
 
   Products(this.id, this.brand, this.productName, this.productStyle,
@@ -18,9 +18,9 @@ class Products {
     brand = map[DatabaseHelper.columnBrand];
     productName = map[DatabaseHelper.columnProductName];
     productStyle = map[DatabaseHelper.columnProductStyle];
-    produceDate = map[DatabaseHelper.columnProduceDate];
-    openDate = map[DatabaseHelper.columnOpenDate];
-    outDate = map[DatabaseHelper.columnOutDate];
+    produceDate = DateTime.tryParse(map[DatabaseHelper.columnProduceDate]);
+    openDate = DateTime.tryParse(map[DatabaseHelper.columnOpenDate]);
+    outDate = DateTime.tryParse(map[DatabaseHelper.columnOutDate]);
     image = map[DatabaseHelper.columnImage];
   }
 
