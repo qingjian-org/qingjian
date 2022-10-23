@@ -73,7 +73,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
     fontFamily: 'Sitka Text',
     fontSize: 14,
     color: Color(0xff000000),
-    fontStyle: FontStyle.italic,
+    // fontStyle: FontStyle.italic,
     fontWeight: FontWeight.bold,
     shadows: [
       Shadow(
