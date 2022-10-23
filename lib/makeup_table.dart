@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, must_be_immutable
+// ignore_for_file: avoid_print, must_be_immutable, unnecessary_const
 
 import 'dart:io';
 
@@ -9,6 +9,7 @@ import 'Products.dart';
 import 'product_add.dart';
 import 'DatabaseHelper.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'background.dart';
 
 class MakeUpTable extends StatefulWidget {
   @override
@@ -19,6 +20,21 @@ class _MakeUpTableState extends State<MakeUpTable> {
   int count = 0;
   DatabaseHelper dbHelper = DatabaseHelper.instance;
   bool expanded = false;
+
+  static const TextStyle labelStyle2 = TextStyle(
+    fontFamily: 'Sitka Text',
+    fontSize: 14,
+    color: Color(0xff000000),
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+        color: Color(0x29000000),
+        offset: Offset(0, 3),
+        blurRadius: 4,
+      )
+    ],
+  );
 
   Future<List<Products>> loadProducts() async {
     var allRows = await dbHelper.queryAllRows();
@@ -52,7 +68,7 @@ class _MakeUpTableState extends State<MakeUpTable> {
           }
 
           return Scaffold(
-              backgroundColor: const Color(0xffffffff),
+              backgroundColor: const Color(0xffEDF2F2),
               floatingActionButton: FloatingActionButton(
                 onPressed: () async {
                   final bool? shouldRefresh = await Navigator.of(context).push(
@@ -79,75 +95,96 @@ class _MakeUpTableState extends State<MakeUpTable> {
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerFloat,
               body: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    // 产品柜标题
-                    SizedBox(
-                        height: 100,
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: PageLink(
-                            links: [
-                              PageLinkInfo(
-                                transition: LinkTransition.Fade,
-                                ease: Curves.easeOut,
-                                duration: 0.3,
-                                pageBuilder: () => ProductAddPage(
-                                    products: Products(
-                                        null,
-                                        null,
-                                        null,
-                                        null,
-                                        DateTime.now(),
-                                        DateTime.now(),
-                                        DateTime.now(),
-                                        null)),
+                child: Stack(
+                  children: [
+                    BackGroundWidget(),
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        // 产品柜标题
+                        SizedBox(
+                            height: 100,
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: PageLink(
+                                links: [
+                                  PageLinkInfo(
+                                    transition: LinkTransition.Fade,
+                                    ease: Curves.easeOut,
+                                    duration: 0.3,
+                                    pageBuilder: () => ProductAddPage(
+                                        products: Products(
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            DateTime.now(),
+                                            DateTime.now(),
+                                            DateTime.now(),
+                                            null)),
+                                  ),
+                                ],
+                                child: const Text(
+                                  '产品柜',
+                                  style: TextStyle(
+                                    fontFamily: 'Microsoft Yi Baiti',
+                                    fontSize: 35,
+                                    color: Color(0xff06241a),
+                                    height: 0.5714285714285714,
+                                    shadows: [
+                                      Shadow(
+                                        color: Color(0x29000000),
+                                        offset: Offset(0, 3),
+                                        blurRadius: 6,
+                                      )
+                                    ],
+                                  ),
+                                  textHeightBehavior: TextHeightBehavior(
+                                      applyHeightToFirstAscent: false),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            )),
+                        // 标题-产品柜分割线
+                        const Divider(
+                          color: Color.fromARGB(255, 84, 82, 82),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffffffff).withOpacity(0.48),
+                            borderRadius: BorderRadius.circular(24.0),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Color(0x29000000),
+                                offset: Offset(0, 3),
+                                blurRadius: 6,
                               ),
                             ],
-                            child: const Text(
-                              '产品柜',
-                              style: TextStyle(
-                                fontFamily: 'Microsoft Yi Baiti',
-                                fontSize: 35,
-                                color: Color(0xff06241a),
-                                height: 0.5714285714285714,
-                                shadows: [
-                                  Shadow(
-                                    color: Color(0x29000000),
-                                    offset: Offset(0, 3),
-                                    blurRadius: 6,
-                                  )
-                                ],
-                              ),
-                              textHeightBehavior: TextHeightBehavior(
-                                  applyHeightToFirstAscent: false),
-                              textAlign: TextAlign.center,
-                            ),
                           ),
-                        )),
-                    // 标题-产品柜分割线
-                    const Divider(
-                      color: Color.fromARGB(255, 84, 82, 82),
-                    ),
-                    // 底妆
-                    SubTitle(subTitle: '底妆'),
-                    Shelf(products: dizhuang),
-                    const Divider(
-                      color: Color.fromARGB(255, 84, 82, 82),
-                    ),
-                    // 遮瑕和修容
-                    SubTitle(subTitle: '遮瑕和修容'),
-                    Shelf(products: zhexia),
-                    const Divider(
-                      color: Color.fromARGB(255, 84, 82, 82),
-                    ),
-                    // 彩妆
-                    SubTitle(subTitle: '彩妆'),
-                    Shelf(products: caizhuang),
-                    const Divider(
-                      color: Color.fromARGB(255, 84, 82, 82),
+                          child: Column(children: <Widget>[
+                            // 底妆
+                            SubTitle(subTitle: '底妆'),
+                            Shelf(products: dizhuang),
+                            const Divider(
+                              color: Color.fromARGB(255, 84, 82, 82),
+                            ),
+                            // 遮瑕和修容
+                            SubTitle(subTitle: '遮瑕和修容'),
+                            Shelf(products: zhexia),
+                            const Divider(
+                              color: Color.fromARGB(255, 84, 82, 82),
+                            ),
+                            // 彩妆
+                            SubTitle(subTitle: '彩妆'),
+                            Shelf(products: caizhuang),
+                          ]),
+                        ),
+                        const Divider(
+                          color: Color.fromARGB(255, 84, 82, 82),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -162,7 +199,7 @@ class AddMakeUpButton extends StatelessWidget {
     return Stack(alignment: Alignment.center, children: [
       Container(
         decoration: const BoxDecoration(
-          color: Color(0xffff0d1d),
+          color: Color(0x6600fceb),
           borderRadius: BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
           boxShadow: [
             BoxShadow(
@@ -175,29 +212,24 @@ class AddMakeUpButton extends StatelessWidget {
         child: const SizedBox(width: 60, height: 60),
       ),
       SizedBox(
-        width: 13.0,
-        height: 33.0,
+        width: 14.0,
+        height: 34.7,
         child: Container(
           decoration: BoxDecoration(
             color: const Color(0xffffffff),
-            borderRadius: BorderRadius.circular(4.0),
+            borderRadius: BorderRadius.circular(7),
           ),
         ),
       ),
       SizedBox(
-        width: 33.0,
-        height: 13.0,
+        width: 34.7,
+        height: 14.0,
         child: Container(
           decoration: BoxDecoration(
             color: const Color(0xffffffff),
-            borderRadius: BorderRadius.circular(4.0),
+            borderRadius: BorderRadius.circular(7),
           ),
         ),
-      ),
-      SvgPicture.string(
-        _svg_sypfve,
-        allowDrawingOutsideViewBox: true,
-        fit: BoxFit.fill,
       ),
     ]);
   }
@@ -285,59 +317,81 @@ class _ShelfState extends State<Shelf> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 370,
-      decoration: const BoxDecoration(
-        color: Color(0xffd0e7ef),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0x29000000),
-            offset: Offset(0, 3),
-            blurRadius: 6,
-          ),
-        ],
-      ),
-      child: Row(children: [
-        expanded
-            ? SizedBox(
-                width: 293.5,
-                height: 50,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: widget.products.length,
-                  itemBuilder: (context, index) =>
-                      ProductInfoButton(widget.products[index]),
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      width: 5,
-                    );
-                  },
-                ))
-            : SizedBox(
-                width: 293.5,
-                child: Wrap(
-                  alignment: WrapAlignment.start,
-                  spacing: 5.0,
-                  runSpacing: 10.0,
-                  children: List.generate(widget.products.length,
-                      (index) => ProductInfoButton(widget.products[index])),
-                )),
+    return Column(
+      children: [
+        SizedBox(
+          width: 370,
+          child: Row(children: [
+            expanded
+                ? SizedBox(
+                    width: 293.5,
+                    height: 50,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: widget.products.length,
+                      itemBuilder: (context, index) =>
+                          ProductInfoButton(widget.products[index]),
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          width: 5,
+                        );
+                      },
+                    ))
+                : SizedBox(
+                    width: 293.5,
+                    child: Wrap(
+                      alignment: WrapAlignment.start,
+                      spacing: 5.0,
+                      runSpacing: 10.0,
+                      children: List.generate(widget.products.length,
+                          (index) => ProductInfoButton(widget.products[index])),
+                    )),
+            Container(
+              color: Colors.white,
+              width: 10,
+            ),
+            IconButton(
+              alignment: Alignment.topCenter,
+              icon: expanded
+                  ? const Icon(Icons.expand_less)
+                  : const Icon(Icons.more_horiz),
+              onPressed: () {
+                setState(() {
+                  expanded = !expanded;
+                });
+              },
+            ),
+          ]),
+        ),
+        SvgPicture.string(
+          _svg_lfrjy3,
+          allowDrawingOutsideViewBox: true,
+          fit: BoxFit.fill,
+        ),
+        const SizedBox(
+          height: 2,
+        ),
         Container(
-          color: Colors.white,
-          width: 10,
+          height: 16.3,
+          width: 351.5,
+          decoration: const BoxDecoration(
+            color: Color(0xffffffff),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(2.0),
+              topRight: Radius.circular(2.0),
+              bottomRight: const Radius.circular(10.0),
+              bottomLeft: Radius.circular(10.0),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x29000000),
+                offset: Offset(0, 6),
+                blurRadius: 6,
+              ),
+            ],
+          ),
         ),
-        IconButton(
-          alignment: Alignment.topCenter,
-          icon: expanded
-              ? const Icon(Icons.expand_more)
-              : const Icon(Icons.expand_less),
-          onPressed: () {
-            setState(() {
-              expanded = !expanded;
-            });
-          },
-        ),
-      ]),
+      ],
     );
   }
 }
@@ -397,3 +451,5 @@ const String _svg_sk0rcn =
     '<svg viewBox="24.0 620.2 341.9 68.1" ><path transform="translate(-1425.0, -461.75)" d="M 1449 1082 L 1449 1150.137329101562 L 1457.86083984375 1147.462524414062 L 1457.86083984375 1094.124267578125 L 1783.646118164062 1094.124267578125 L 1783.646118164062 1150.137329101562 L 1790.88720703125 1150.137329101562 L 1790.88720703125 1082 L 1449 1082 Z" fill="#bae4e0" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
 const String _svg_vh556v =
     '<svg viewBox="24.0 685.8 341.3 2.2" ><path transform="translate(-1425.0, -455.52)" d="M 1448.999877929688 1141.278564453125 L 1790.335205078125 1141.278564453125 L 1790.335205078125 1143.524047851562 L 1448.999877929688 1143.524047851562 L 1448.999877929688 1141.278564453125 Z" fill="#bae4e0" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
+const String _svg_lfrjy3 =
+    '<svg viewBox="31.3 526.9 351.5 11.3" ><path transform="translate(31.33, 523.39)" d="M 14.39103031158447 3.5008544921875 L 339.3346252441406 3.5008544921875 L 351.5475463867188 14.75277709960938 L 0 14.75277709960938 L 14.39103031158447 3.5008544921875 Z" fill="#dbdbdb" stroke="none" stroke-width="0.5" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';

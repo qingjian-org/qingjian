@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'DatabaseHelper.dart';
 import 'Products.dart';
 import 'package:path_provider/path_provider.dart';
+import 'background.dart';
 
 class ProductAddPage extends StatefulWidget {
   const ProductAddPage({Key? key, this.restorationId, required this.products})
@@ -39,6 +40,64 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
   //   '粉底液',
   //   '气垫',
   // ];
+
+  static const TextStyle inputStyle = TextStyle(
+    fontFamily: 'Perpetua',
+    fontSize: 12,
+    color: Color(0xff818080),
+    fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+        color: Color(0x29000000),
+        offset: Offset(0, 3),
+        blurRadius: 6,
+      )
+    ],
+  );
+
+  static const TextStyle labelStyle1 = TextStyle(
+    fontFamily: 'Perpetua',
+    fontSize: 14,
+    color: Color(0xff000000),
+    fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+        color: Color(0x29000000),
+        offset: Offset(0, 3),
+        blurRadius: 6,
+      )
+    ],
+  );
+
+  static const TextStyle labelStyle2 = TextStyle(
+    fontFamily: 'Sitka Text',
+    fontSize: 14,
+    color: Color(0xff000000),
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+        color: Color(0x29000000),
+        offset: Offset(0, 3),
+        blurRadius: 4,
+      )
+    ],
+  );
+
+  static const TextStyle dateStyle = TextStyle(
+    fontFamily: 'Arial',
+    fontSize: 14,
+    color: Color(0xff818080),
+    letterSpacing: 2.8000000000000003,
+    shadows: [
+      Shadow(
+        color: Color(0x29000000),
+        offset: Offset(0, 3),
+        blurRadius: 6,
+      )
+    ],
+  );
+
   List<Products> productsByName = [];
   var map = {};
 
@@ -127,19 +186,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                   child: TextButton(
                                     child: Text(
                                       '${productsByName[index].brand}',
-                                      style: const TextStyle(
-                                        fontFamily: 'Perpetua',
-                                        fontSize: 14,
-                                        color: Color(0xff818080),
-                                        fontWeight: FontWeight.w700,
-                                        shadows: [
-                                          Shadow(
-                                            color: Color(0x29000000),
-                                            offset: Offset(0, 3),
-                                            blurRadius: 6,
-                                          )
-                                        ],
-                                      ),
+                                      style: inputStyle,
                                     ),
                                     onPressed: () {
                                       setState(() {
@@ -185,19 +232,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                   child: TextButton(
                                     child: Text(
                                       '${productsByName[index].productName}',
-                                      style: const TextStyle(
-                                        fontFamily: 'Perpetua',
-                                        fontSize: 14,
-                                        color: Color(0xff818080),
-                                        fontWeight: FontWeight.w700,
-                                        shadows: [
-                                          Shadow(
-                                            color: Color(0x29000000),
-                                            offset: Offset(0, 3),
-                                            blurRadius: 6,
-                                          )
-                                        ],
-                                      ),
+                                      style: inputStyle,
                                     ),
                                     onPressed: () {
                                       setState(() {
@@ -334,7 +369,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
           value: items,
           child: Text(
             items,
-            style: const TextStyle(fontSize: 14),
+            style: inputStyle,
           ),
         );
       }).toList(),
@@ -355,14 +390,11 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('images/product_add/background.jpg'),
-              ),
-            ),
-            child: Padding(
+        backgroundColor: const Color(0xffEDF2F2),
+        body: Stack(
+          children: [
+            BackGroundWidget(),
+            Padding(
                 padding: const EdgeInsets.all(15),
                 child: Column(children: <Widget>[
                   SizedBox(
@@ -478,19 +510,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                   flex: 2,
                                   child: Text(
                                     '品牌',
-                                    style: TextStyle(
-                                      fontFamily: 'Perpetua',
-                                      fontSize: 14,
-                                      color: Color(0xff000000),
-                                      fontWeight: FontWeight.w700,
-                                      shadows: [
-                                        Shadow(
-                                          color: Color(0x29000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 6,
-                                        )
-                                      ],
-                                    ),
+                                    style: labelStyle1,
                                   ),
                                 )
                               ]),
@@ -569,19 +589,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                   flex: 2,
                                   child: Text(
                                     '产品名',
-                                    style: TextStyle(
-                                      fontFamily: 'Perpetua',
-                                      fontSize: 14,
-                                      color: Color(0xff000000),
-                                      fontWeight: FontWeight.w700,
-                                      shadows: [
-                                        Shadow(
-                                          color: Color(0x29000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 6,
-                                        )
-                                      ],
-                                    ),
+                                    style: labelStyle1,
                                     // textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -736,20 +744,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                     child: Center(
                                       child: Text(
                                         "生产日期",
-                                        style: TextStyle(
-                                          fontFamily: 'Sitka Text',
-                                          fontSize: 14,
-                                          color: Color(0xff000000),
-                                          fontStyle: FontStyle.italic,
-                                          fontWeight: FontWeight.w700,
-                                          shadows: [
-                                            Shadow(
-                                              color: Color(0x29000000),
-                                              offset: Offset(0, 3),
-                                              blurRadius: 4,
-                                            )
-                                          ],
-                                        ),
+                                        style: labelStyle2,
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
@@ -769,20 +764,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                           height: 19.0,
                                           child: Text.rich(
                                             TextSpan(
-                                              style: const TextStyle(
-                                                fontFamily: 'Arial',
-                                                fontSize: 14,
-                                                color: Color(0xff818080),
-                                                letterSpacing:
-                                                    2.8000000000000003,
-                                                shadows: [
-                                                  Shadow(
-                                                    color: Color(0x29000000),
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 6,
-                                                  )
-                                                ],
-                                              ),
+                                              style: dateStyle,
                                               children: [
                                                 TextSpan(
                                                   text: _produceDate.value.year
@@ -793,7 +775,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                                 ),
                                                 const TextSpan(
                                                   text: '年   ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
@@ -807,13 +789,13 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                                 ),
                                                 const TextSpan(
                                                   text: '月 ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
                                                 const TextSpan(
                                                   text: ' ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
@@ -853,20 +835,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                     child: Center(
                                       child: Text(
                                         "启用日期",
-                                        style: TextStyle(
-                                          fontFamily: 'Sitka Text',
-                                          fontSize: 14,
-                                          color: Color(0xff000000),
-                                          fontStyle: FontStyle.italic,
-                                          fontWeight: FontWeight.w700,
-                                          shadows: [
-                                            Shadow(
-                                              color: Color(0x29000000),
-                                              offset: Offset(0, 3),
-                                              blurRadius: 4,
-                                            )
-                                          ],
-                                        ),
+                                        style: labelStyle2,
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
@@ -886,20 +855,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                           height: 19.0,
                                           child: Text.rich(
                                             TextSpan(
-                                              style: const TextStyle(
-                                                fontFamily: 'Arial',
-                                                fontSize: 14,
-                                                color: Color(0xff818080),
-                                                letterSpacing:
-                                                    2.8000000000000003,
-                                                shadows: [
-                                                  Shadow(
-                                                    color: Color(0x29000000),
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 6,
-                                                  )
-                                                ],
-                                              ),
+                                              style: dateStyle,
                                               children: [
                                                 TextSpan(
                                                   text: _openDate.value.year
@@ -910,7 +866,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                                 ),
                                                 const TextSpan(
                                                   text: '年   ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
@@ -924,13 +880,13 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                                 ),
                                                 const TextSpan(
                                                   text: '月 ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
                                                 const TextSpan(
                                                   text: ' ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
@@ -970,20 +926,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                     child: Center(
                                       child: Text(
                                         "到期日期",
-                                        style: TextStyle(
-                                          fontFamily: 'Sitka Text',
-                                          fontSize: 14,
-                                          color: Color(0xff000000),
-                                          fontStyle: FontStyle.italic,
-                                          fontWeight: FontWeight.w700,
-                                          shadows: [
-                                            Shadow(
-                                              color: Color(0x29000000),
-                                              offset: Offset(0, 3),
-                                              blurRadius: 4,
-                                            )
-                                          ],
-                                        ),
+                                        style: labelStyle2,
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
@@ -991,7 +934,8 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                               Expanded(
                                 flex: 3,
                                 child: Padding(
-                                    padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(10, 0, 20, 0),
                                     child: OutlinedButton(
                                         onPressed: () {
                                           _restorableOutDatePickerRouteFuture
@@ -1002,20 +946,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                           height: 19.0,
                                           child: Text.rich(
                                             TextSpan(
-                                              style: const TextStyle(
-                                                fontFamily: 'Arial',
-                                                fontSize: 14,
-                                                color: Color(0xff818080),
-                                                letterSpacing:
-                                                    2.8000000000000003,
-                                                shadows: [
-                                                  Shadow(
-                                                    color: Color(0x29000000),
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 6,
-                                                  )
-                                                ],
-                                              ),
+                                              style: dateStyle,
                                               children: [
                                                 TextSpan(
                                                   text: _outDate.value.year
@@ -1026,7 +957,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                                 ),
                                                 const TextSpan(
                                                   text: '年   ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
@@ -1040,13 +971,13 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                                 ),
                                                 const TextSpan(
                                                   text: '月 ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
                                                 const TextSpan(
                                                   text: ' ',
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                                 ),
@@ -1079,9 +1010,9 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                         ],
                       )),
                   const SizedBox(height: 20),
-                  const Divider(
-                    color: Color.fromARGB(255, 84, 82, 82),
-                  ),
+                  // const Divider(
+                  //   color: Color.fromARGB(255, 84, 82, 82),
+                  // ),
                   //第三部分
                   Container(
                     height: 90,
@@ -1103,10 +1034,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                           child: Padding(
                             padding: EdgeInsets.all(10),
                             child: Center(
-                              child: Text("标签",
-                                  style: (TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold))),
+                              child: Text("标签", style: labelStyle2),
                             ),
                           )),
                       Expanded(
@@ -1159,104 +1087,6 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                           ))
                     ]),
                   ),
-
-                  // Row(
-                  //   children: <Widget>[
-                  //     const Expanded(
-                  //         flex: 1,
-                  //         child: Padding(
-                  //           padding: EdgeInsets.all(10),
-                  //           child: Center(
-                  //             child: Text(
-                  //               "特性标签",
-                  //               textAlign: TextAlign.center,
-                  //             ),
-                  //           ),
-                  //         )),
-                  //     Expanded(
-                  //         flex: 3,
-                  //         child: Wrap(children: const <Widget>[
-                  //           Expanded(
-                  //               child: Padding(
-                  //                   padding: EdgeInsets.all(10),
-                  //                   child: SizedBox(
-                  //                     height: 20,
-                  //                     width: 70,
-                  //                     child: TextField(
-                  //                       decoration: InputDecoration(
-                  //                           border: OutlineInputBorder(
-                  //                               borderRadius: BorderRadius.all(
-                  //                                   Radius.circular(5)))),
-                  //                     ),
-                  //                   ))),
-                  //           Expanded(
-                  //               child: Padding(
-                  //                   padding: EdgeInsets.all(10),
-                  //                   child: SizedBox(
-                  //                     height: 20,
-                  //                     width: 70,
-                  //                     child: TextField(
-                  //                       decoration: InputDecoration(
-                  //                           border: OutlineInputBorder(
-                  //                               borderRadius: BorderRadius.all(
-                  //                                   Radius.circular(5)))),
-                  //                     ),
-                  //                   ))),
-                  //           Expanded(
-                  //               child: Padding(
-                  //                   padding: EdgeInsets.all(10),
-                  //                   child: SizedBox(
-                  //                     height: 20,
-                  //                     width: 70,
-                  //                     child: TextField(
-                  //                       decoration: InputDecoration(
-                  //                           border: OutlineInputBorder(
-                  //                               borderRadius: BorderRadius.all(
-                  //                                   Radius.circular(5)))),
-                  //                     ),
-                  //                   ))),
-                  //           Expanded(
-                  //               child: Padding(
-                  //                   padding: EdgeInsets.all(10),
-                  //                   child: SizedBox(
-                  //                     height: 20,
-                  //                     width: 70,
-                  //                     child: TextField(
-                  //                       decoration: InputDecoration(
-                  //                           border: OutlineInputBorder(
-                  //                               borderRadius: BorderRadius.all(
-                  //                                   Radius.circular(5)))),
-                  //                     ),
-                  //                   ))),
-                  //           Expanded(
-                  //               child: Padding(
-                  //                   padding: EdgeInsets.all(10),
-                  //                   child: SizedBox(
-                  //                     height: 20,
-                  //                     width: 70,
-                  //                     child: TextField(
-                  //                       decoration: InputDecoration(
-                  //                           border: OutlineInputBorder(
-                  //                               borderRadius: BorderRadius.all(
-                  //                                   Radius.circular(5)))),
-                  //                     ),
-                  //                   ))),
-                  //           Expanded(
-                  //               child: Padding(
-                  //                   padding: EdgeInsets.all(10),
-                  //                   child: SizedBox(
-                  //                     height: 20,
-                  //                     width: 70,
-                  //                     child: TextField(
-                  //                       decoration: InputDecoration(
-                  //                           border: OutlineInputBorder(
-                  //                               borderRadius: BorderRadius.all(
-                  //                                   Radius.circular(5)))),
-                  //                     ),
-                  //                   )))
-                  //         ]))
-                  //   ],
-                  // ),
                   const SizedBox(height: 10),
                   //第四部分
                   Row(
@@ -1287,7 +1117,10 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                       ),
                     ],
                   )
-                ]))));
+                ]))
+          ],
+        ));
+    // );
   }
 
   void _insert_product() async {
