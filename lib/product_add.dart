@@ -20,26 +20,6 @@ class ProductAddPage extends StatefulWidget {
 
 class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
   final dbHelper = DatabaseHelper.instance; //启动数据库
-// Initial Selected Value
-  // String brand_name = '资生堂';
-  // String product_name = '水乳';
-
-// List of items in our dropdown menu
-  // var items_brand_name = [
-  //   '资生堂',
-  //   '姿色',
-  //   '兰蔻',
-  //   'AHC',
-  //   '蜜思婷',
-  // ];
-
-  // var items_product_name = [
-  //   '水乳',
-  //   '隔离',
-  //   '防晒霜',
-  //   '粉底液',
-  //   '气垫',
-  // ];
 
   static const TextStyle inputStyle = TextStyle(
     fontFamily: 'Perpetua',
@@ -397,15 +377,23 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
             Padding(
                 padding: const EdgeInsets.all(15),
                 child: Column(children: <Widget>[
+                  const SizedBox(
+                    height: 50,
+                  ),
                   SizedBox(
-                    height: 100,
+                    height: 30,
                     child: Row(
-                      children: const <Widget>[
+                      children: <Widget>[
                         Expanded(
-                          flex: 1,
-                          child: Text(""),
-                        ),
-                        Expanded(
+                            flex: 1,
+                            child: IconButton(
+                              onPressed: (() {
+                                Navigator.of(context).pop(false);
+                              }),
+                              alignment: Alignment.bottomLeft,
+                              icon: const Icon(Icons.arrow_back_ios),
+                            )),
+                        const Expanded(
                           flex: 1,
                           child: Text(
                             '产品信息',
@@ -424,15 +412,43 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                 )
                               ],
                             ),
-                            textHeightBehavior: TextHeightBehavior(
-                                applyHeightToFirstAscent: false),
                           ),
                         ),
-                        Expanded(flex: 1, child: Text("")),
+                        Expanded(
+                            flex: 1,
+                            child: Container(
+                              alignment: Alignment.bottomRight,
+                              child: TextButton(
+                                onPressed: () {
+                                  widget.products.produceDate =
+                                      _produceDate.value;
+                                  widget.products.openDate = _openDate.value;
+                                  widget.products.outDate = _outDate.value;
+                                  widget.products.brand = brandControl.text;
+                                  widget.products.productName =
+                                      productNameControl.text;
+                                  if (widget.products.id == null) {
+                                    _insert_product();
+                                  } else {
+                                    _update_product();
+                                  }
+
+                                  Navigator.of(context).pop(true);
+                                },
+                                style:
+                                    TextButton.styleFrom(primary: Colors.black),
+                                child: const Text(
+                                  "保存",
+                                  // textAlign: TextAlign.right,
+                                ),
+                              ),
+                            ))
                       ],
                     ),
                   ),
-
+                  const SizedBox(
+                    height: 30,
+                  ),
                   //第一部分
                   Container(
                     height: 220,
@@ -716,7 +732,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
 
                   //第二部分
                   Container(
@@ -755,73 +771,81 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                     padding:
                                         const EdgeInsets.fromLTRB(10, 0, 20, 0),
                                     child: OutlinedButton(
-                                        onPressed: () {
-                                          _restorableProduceDatePickerRouteFuture
-                                              .present();
-                                        },
-                                        child: SizedBox(
-                                          width: 177.0,
-                                          height: 19.0,
-                                          child: Text.rich(
-                                            TextSpan(
-                                              style: dateStyle,
-                                              children: [
-                                                TextSpan(
-                                                  text: _produceDate.value.year
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                  ),
+                                      onPressed: () {
+                                        _restorableProduceDatePickerRouteFuture
+                                            .present();
+                                      },
+                                      child: SizedBox(
+                                        width: 177.0,
+                                        height: 19.0,
+                                        child: Text.rich(
+                                          TextSpan(
+                                            style: dateStyle,
+                                            children: [
+                                              TextSpan(
+                                                text: _produceDate.value.year
+                                                    .toString(),
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.w900,
                                                 ),
-                                                const TextSpan(
-                                                  text: '年   ',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                  ),
+                                              ),
+                                              const TextSpan(
+                                                text: '年   ',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w900,
                                                 ),
-                                                TextSpan(
-                                                  text: _produceDate.value.month
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                    letterSpacing: 2.24,
-                                                    fontWeight: FontWeight.w900,
-                                                  ),
+                                              ),
+                                              TextSpan(
+                                                text: _produceDate.value.month
+                                                    .toString(),
+                                                style: const TextStyle(
+                                                  letterSpacing: 2.24,
+                                                  fontWeight: FontWeight.w900,
                                                 ),
-                                                const TextSpan(
-                                                  text: '月 ',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                  ),
+                                              ),
+                                              const TextSpan(
+                                                text: '月 ',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w900,
                                                 ),
-                                                const TextSpan(
-                                                  text: ' ',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                  ),
+                                              ),
+                                              const TextSpan(
+                                                text: ' ',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w900,
                                                 ),
-                                                TextSpan(
-                                                  text: _produceDate.value.day
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                    letterSpacing: 2.24,
-                                                    fontWeight: FontWeight.w900,
-                                                  ),
+                                              ),
+                                              TextSpan(
+                                                text: _produceDate.value.day
+                                                    .toString(),
+                                                style: const TextStyle(
+                                                  letterSpacing: 2.24,
+                                                  fontWeight: FontWeight.w900,
                                                 ),
-                                                const TextSpan(
-                                                  text: '日',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                  ),
+                                              ),
+                                              const TextSpan(
+                                                text: '日',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w900,
                                                 ),
-                                              ],
-                                            ),
-                                            textHeightBehavior:
-                                                const TextHeightBehavior(
-                                                    applyHeightToFirstAscent:
-                                                        false),
-                                            textAlign: TextAlign.center,
+                                              ),
+                                            ],
                                           ),
-                                        )),
+                                          textHeightBehavior:
+                                              const TextHeightBehavior(
+                                                  applyHeightToFirstAscent:
+                                                      false),
+                                          textAlign: TextAlign.center,
+                                          // style: const TextStyle(
+                                          //   decoration:
+                                          //       TextDecoration.underline,
+                                          //   decorationColor: Colors.black,
+                                          //   // decorationThickness: 2
+                                          // ),
+                                        ),
+                                      ),
+                                      style: ButtonStyle(),
+                                    ),
                                   )),
                             ],
                           ),
@@ -1009,7 +1033,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                           ),
                         ],
                       )),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                   // const Divider(
                   //   color: Color.fromARGB(255, 84, 82, 82),
                   // ),
@@ -1055,68 +1079,39 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                                           Radius.circular(5)))),
                                         ),
                                       ))),
-                              Expanded(
-                                  child: Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: SizedBox(
-                                        height: 20,
-                                        width: 70,
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                              border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(5)))),
-                                        ),
-                                      ))),
-                              Expanded(
-                                  child: Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: SizedBox(
-                                        height: 20,
-                                        width: 70,
-                                        child: TextField(
-                                          decoration: InputDecoration(
-                                              border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(5)))),
-                                        ),
-                                      ))),
+                              // Expanded(
+                              //     child: Padding(
+                              //         padding: EdgeInsets.all(10),
+                              //         child: SizedBox(
+                              //           height: 20,
+                              //           width: 70,
+                              //           child: TextField(
+                              //             decoration: InputDecoration(
+                              //                 border: OutlineInputBorder(
+                              //                     borderRadius:
+                              //                         BorderRadius.all(
+                              //                             Radius.circular(5)))),
+                              //           ),
+                              //         ))),
+                              // Expanded(
+                              //     child: Padding(
+                              //         padding: EdgeInsets.all(10),
+                              //         child: SizedBox(
+                              //           height: 20,
+                              //           width: 70,
+                              //           child: TextField(
+                              //             decoration: InputDecoration(
+                              //                 border: OutlineInputBorder(
+                              //                     borderRadius:
+                              //                         BorderRadius.all(
+                              //                             Radius.circular(5)))),
+                              //           ),
+                              //         ))),
                             ],
                           ))
                     ]),
                   ),
                   const SizedBox(height: 10),
-                  //第四部分
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ElevatedButton(
-                        onPressed: () {
-                          widget.products.produceDate = _produceDate.value;
-                          widget.products.openDate = _openDate.value;
-                          widget.products.outDate = _outDate.value;
-                          widget.products.brand = brandControl.text;
-                          widget.products.productName = productNameControl.text;
-                          if (widget.products.id == null) {
-                            _insert_product();
-                          } else {
-                            _update_product();
-                          }
-
-                          Navigator.of(context).pop(true);
-                        },
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(120, 40),
-                        ),
-                        child: const Text(
-                          "保存",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    ],
-                  )
                 ]))
           ],
         ));
