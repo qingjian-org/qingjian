@@ -3,7 +3,7 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class XDIPhone1212Pro5 extends StatelessWidget {
-  XDIPhone1212Pro5({
+  const XDIPhone1212Pro5({
     Key? key,
   }) : super(key: key);
   @override
@@ -24,16 +24,16 @@ class XDIPhone1212Pro5 extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 127.0, middle: 0.4886),
             Pin(size: 47.0, start: 67.0),
-            child: Text(
+            child: const Text(
               '产品柜',
               style: TextStyle(
                 fontFamily: 'Microsoft Yi Baiti',
                 fontSize: 35,
-                color: const Color(0xff06241a),
+                color: Color(0xff06241a),
                 height: 0.5714285714285714,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   )
@@ -66,13 +66,13 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(size: 60.0, middle: 0.4985),
             Pin(size: 60.0, end: 40.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffff0d1d),
+              decoration: const BoxDecoration(
+                color: Color(0xffff0d1d),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -105,14 +105,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -121,21 +121,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.428, -0.559),
+            alignment: const Alignment(-0.428, -0.559),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 56.0,
               height: 55.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -144,21 +144,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.045, -0.568),
+            alignment: const Alignment(-0.045, -0.568),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 56.0,
               height: 57.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -167,21 +167,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.338, -0.565),
+            alignment: const Alignment(0.338, -0.565),
             child:
                 // Adobe XD layer: '449043874045663638' (shape)
                 Container(
               width: 56.0,
               height: 57.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -196,14 +196,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '327452647342344346' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -215,11 +215,11 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(start: 17.5, end: 17.5),
             Pin(size: 77.0, middle: 0.1956),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -231,11 +231,11 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(start: 17.5, end: 17.5),
             Pin(size: 77.0, middle: 0.2943),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -247,11 +247,11 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(start: 17.5, end: 17.5),
             Pin(size: 77.0, middle: 0.395),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -263,11 +263,11 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(start: 17.5, end: 17.5),
             Pin(size: 77.0, middle: 0.4958),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -279,11 +279,11 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(start: 17.5, end: 17.5),
             Pin(size: 77.0, middle: 0.5963),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -295,11 +295,11 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(start: 17.5, end: 17.5),
             Pin(size: 77.0, middle: 0.6967),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -311,11 +311,11 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(start: 17.5, end: 17.5),
             Pin(size: 77.0, middle: 0.7971),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -389,16 +389,16 @@ class XDIPhone1212Pro5 extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 127.0, middle: 0.4886),
             Pin(size: 47.0, start: 67.0),
-            child: Text(
+            child: const Text(
               '产品柜',
               style: TextStyle(
                 fontFamily: 'Microsoft Yi Baiti',
                 fontSize: 35,
-                color: const Color(0xff06241a),
+                color: Color(0xff06241a),
                 height: 0.5714285714285714,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   )
@@ -434,14 +434,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -456,14 +456,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -478,14 +478,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -500,14 +500,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -522,14 +522,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -544,14 +544,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -560,21 +560,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.194, -0.37),
+            alignment: const Alignment(-0.194, -0.37),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -583,21 +583,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.194, -0.18),
+            alignment: const Alignment(-0.194, -0.18),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -606,21 +606,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.194, 0.009),
+            alignment: const Alignment(-0.194, 0.009),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -629,21 +629,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.194, 0.198),
+            alignment: const Alignment(-0.194, 0.198),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -652,21 +652,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.194, 0.387),
+            alignment: const Alignment(-0.194, 0.387),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -675,21 +675,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.194, 0.576),
+            alignment: const Alignment(-0.194, 0.576),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -698,21 +698,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.126, -0.37),
+            alignment: const Alignment(0.126, -0.37),
             child:
                 // Adobe XD layer: '327452647342344346' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -721,21 +721,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.126, -0.18),
+            alignment: const Alignment(0.126, -0.18),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -744,21 +744,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.126, 0.009),
+            alignment: const Alignment(0.126, 0.009),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -767,21 +767,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.126, 0.198),
+            alignment: const Alignment(0.126, 0.198),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -790,21 +790,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.126, 0.387),
+            alignment: const Alignment(0.126, 0.387),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -813,21 +813,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.126, 0.576),
+            alignment: const Alignment(0.126, 0.576),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -836,21 +836,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.447, -0.37),
+            alignment: const Alignment(0.447, -0.37),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -859,21 +859,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.447, -0.18),
+            alignment: const Alignment(0.447, -0.18),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -882,21 +882,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.447, 0.009),
+            alignment: const Alignment(0.447, 0.009),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -905,21 +905,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.447, 0.198),
+            alignment: const Alignment(0.447, 0.198),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -928,21 +928,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.447, 0.387),
+            alignment: const Alignment(0.447, 0.387),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -951,21 +951,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.447, 0.576),
+            alignment: const Alignment(0.447, 0.576),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -995,14 +995,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '86818919415592160' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage(''),
+                              image: const DecorationImage(
+                                image: AssetImage(''),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1017,14 +1017,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '86818919415592160' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage(''),
+                              image: const DecorationImage(
+                                image: AssetImage(''),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1039,14 +1039,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '327452647342344346' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage(''),
+                              image: const DecorationImage(
+                                image: AssetImage(''),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1061,14 +1061,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '146036734416160729' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage(''),
+                              image: const DecorationImage(
+                                image: AssetImage(''),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1083,14 +1083,14 @@ class XDIPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '410828845859064977' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage(''),
+                              image: const DecorationImage(
+                                image: AssetImage(''),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29c21818),
+                                  color: Color(0x29c21818),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1106,21 +1106,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.479, -0.374),
+            alignment: const Alignment(-0.479, -0.374),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1129,21 +1129,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.479, -0.183),
+            alignment: const Alignment(-0.479, -0.183),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1152,21 +1152,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.479, 0.008),
+            alignment: const Alignment(-0.479, 0.008),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1175,21 +1175,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.479, 0.2),
+            alignment: const Alignment(-0.479, 0.2),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1198,21 +1198,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.479, 0.391),
+            alignment: const Alignment(-0.479, 0.391),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1221,21 +1221,21 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.479, 0.582),
+            alignment: const Alignment(-0.479, 0.582),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1289,11 +1289,11 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             Pin(start: 15.0, end: 17.0),
             Pin(size: 9.0, end: 148.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xfff1fbff),
+              decoration: const BoxDecoration(
+                color: Color(0xfff1fbff),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1482,7 +1482,7 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(0.0),
+                  padding: const EdgeInsets.all(0.0),
                   child: SizedBox.expand(
                       child: SvgPicture.string(
                     _svg_y7wwfy,
@@ -1522,7 +1522,7 @@ class XDIPhone1212Pro5 extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(0.0),
+                  padding: const EdgeInsets.all(0.0),
                   child: SizedBox.expand(
                       child: SvgPicture.string(
                     _svg_tppz6,

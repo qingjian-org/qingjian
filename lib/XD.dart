@@ -5,7 +5,7 @@ import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class XD extends StatelessWidget {
-  XD({
+  const XD({
     Key? key,
   }) : super(key: key);
   @override
@@ -21,11 +21,11 @@ class XD extends StatelessWidget {
             Pin(start: 0.0, end: 0.0),
             Pin(size: 330.0, start: 0.0),
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment(0.0, 0.672),
                   end: Alignment(0.0, 1.0),
-                  colors: [const Color(0x3818a3b9), const Color(0x38ffffff)],
+                  colors: [Color(0x3818a3b9), Color(0x38ffffff)],
                   stops: [0.0, 1.0],
                 ),
                 borderRadius: BorderRadius.only(
@@ -34,7 +34,7 @@ class XD extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x09000000),
+                    color: Color(0x09000000),
                     offset: Offset(0, 8),
                     blurRadius: 8,
                   ),
@@ -46,13 +46,13 @@ class XD extends StatelessWidget {
             Pin(size: 189.0, start: -53.0),
             Pin(size: 181.0, start: 21.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x21def5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x21def5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x05000000),
+                    color: Color(0x05000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -66,13 +66,13 @@ class XD extends StatelessWidget {
             child: Transform.rotate(
               angle: -1.2566,
               child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x21def5f9),
+                decoration: const BoxDecoration(
+                  color: Color(0x21def5f9),
                   borderRadius:
                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0x05000000),
+                      color: Color(0x05000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     ),
@@ -85,13 +85,13 @@ class XD extends StatelessWidget {
             Pin(size: 185.0, start: -62.0),
             Pin(size: 180.0, start: 36.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x47def5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x47def5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x0b000000),
+                    color: Color(0x0b000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -105,13 +105,13 @@ class XD extends StatelessWidget {
             child: Transform.rotate(
               angle: -1.2566,
               child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x47def5f9),
+                decoration: const BoxDecoration(
+                  color: Color(0x47def5f9),
                   borderRadius:
                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0x0b000000),
+                      color: Color(0x0b000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     ),
@@ -124,8 +124,8 @@ class XD extends StatelessWidget {
             Pin(size: 185.0, middle: 0.5044),
             Pin(size: 180.0, start: 80.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x2edef5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x2edef5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
               ),
@@ -135,8 +135,8 @@ class XD extends StatelessWidget {
             Pin(size: 185.0, middle: 0.4912),
             Pin(size: 180.0, start: 101.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x2edef5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x2edef5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
               ),
@@ -146,8 +146,8 @@ class XD extends StatelessWidget {
             Pin(size: 169.0, start: -64.0),
             Pin(size: 175.0, start: 51.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x52def5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x52def5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
               ),
@@ -159,8 +159,8 @@ class XD extends StatelessWidget {
             child: Transform.rotate(
               angle: -1.2566,
               child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x52def5f9),
+                decoration: const BoxDecoration(
+                  color: Color(0x52def5f9),
                   borderRadius:
                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 ),
@@ -171,8 +171,8 @@ class XD extends StatelessWidget {
             Pin(size: 169.0, start: -73.0),
             Pin(size: 164.0, start: 69.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x52def5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x52def5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
               ),
@@ -184,8 +184,8 @@ class XD extends StatelessWidget {
             child: Transform.rotate(
               angle: -1.2566,
               child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x52def5f9),
+                decoration: const BoxDecoration(
+                  color: Color(0x52def5f9),
                   borderRadius:
                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 ),
@@ -199,9 +199,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 borderRadius: BorderRadius.circular(24.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -216,9 +216,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 borderRadius: BorderRadius.circular(24.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -233,9 +233,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -252,9 +252,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0x6ea7a7a7),
                 borderRadius: BorderRadius.circular(27.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x12066477),
+                    color: Color(0x12066477),
                     offset: Offset(0, 6),
                     blurRadius: 5,
                   ),
@@ -262,7 +262,7 @@ class XD extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(0.23, -0.609),
             child: SizedBox(
               width: 76.0,
@@ -272,11 +272,11 @@ class XD extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 14,
-                  color: const Color(0xff000000),
+                  color: Color(0xff000000),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -285,7 +285,7 @@ class XD extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(-0.575, -0.443),
             child: SizedBox(
               width: 91.0,
@@ -295,10 +295,10 @@ class XD extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 14,
-                  color: const Color(0xffffffff),
+                  color: Color(0xffffffff),
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -310,16 +310,16 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 58.0, end: 32.0),
             Pin(size: 29.0, start: 72.0),
-            child: Text(
+            child: const Text(
               '编辑',
               style: TextStyle(
                 fontFamily: 'Perpetua',
                 fontSize: 23,
-                color: const Color(0xff0a0a0a),
+                color: Color(0xff0a0a0a),
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   )
@@ -328,7 +328,7 @@ class XD extends StatelessWidget {
               textAlign: TextAlign.right,
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(0.128, -0.443),
             child: SizedBox(
               width: 76.0,
@@ -338,11 +338,11 @@ class XD extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 14,
-                  color: const Color(0xff000000),
+                  color: Color(0xff000000),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -355,16 +355,16 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 124.0, end: 56.0),
             Pin(size: 17.0, middle: 0.2357),
-            child: Text(
+            child: const Text(
               '巴黎卡诗KERASTASE',
               style: TextStyle(
                 fontFamily: 'Perpetua',
                 fontSize: 12,
-                color: const Color(0xff818080),
+                color: Color(0xff818080),
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   )
@@ -373,7 +373,7 @@ class XD extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(0.291, 0.062),
             child: SizedBox(
               width: 177.0,
@@ -383,11 +383,11 @@ class XD extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Arial',
                     fontSize: 14,
-                    color: const Color(0xff818080),
+                    color: Color(0xff818080),
                     letterSpacing: 2.8000000000000003,
                     shadows: [
                       Shadow(
-                        color: const Color(0x29000000),
+                        color: Color(0x29000000),
                         offset: Offset(0, 3),
                         blurRadius: 6,
                       )
@@ -446,7 +446,7 @@ class XD extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(0.282, 0.199),
             child: SizedBox(
               width: 177.0,
@@ -456,11 +456,11 @@ class XD extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Arial',
                     fontSize: 14,
-                    color: const Color(0xff818080),
+                    color: Color(0xff818080),
                     letterSpacing: 2.8000000000000003,
                     shadows: [
                       Shadow(
-                        color: const Color(0x29000000),
+                        color: Color(0x29000000),
                         offset: Offset(0, 3),
                         blurRadius: 6,
                       )
@@ -519,7 +519,7 @@ class XD extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(0.282, 0.338),
             child: SizedBox(
               width: 177.0,
@@ -529,11 +529,11 @@ class XD extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Arial',
                     fontSize: 14,
-                    color: const Color(0xff818080),
+                    color: Color(0xff818080),
                     letterSpacing: 2.8000000000000003,
                     shadows: [
                       Shadow(
-                        color: const Color(0x29000000),
+                        color: Color(0x29000000),
                         offset: Offset(0, 3),
                         blurRadius: 6,
                       )
@@ -595,16 +595,16 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 124.0, end: 56.0),
             Pin(size: 17.0, middle: 0.3164),
-            child: Text(
+            child: const Text(
               '巴黎卡诗KERASTASE',
               style: TextStyle(
                 fontFamily: 'Perpetua',
                 fontSize: 12,
-                color: const Color(0xff818080),
+                color: Color(0xff818080),
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   )
@@ -616,16 +616,16 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 124.0, end: 56.0),
             Pin(size: 17.0, middle: 0.3995),
-            child: Text(
+            child: const Text(
               '巴黎卡诗KERASTASE',
               style: TextStyle(
                 fontFamily: 'Perpetua',
                 fontSize: 12,
-                color: const Color(0xff818080),
+                color: Color(0xff818080),
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   )
@@ -634,7 +634,7 @@ class XD extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(0.17, -0.281),
             child: SizedBox(
               width: 76.0,
@@ -644,11 +644,11 @@ class XD extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 14,
-                  color: const Color(0xff000000),
+                  color: Color(0xff000000),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -661,17 +661,17 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 76.0, start: 27.0),
             Pin(size: 19.0, middle: 0.5361),
-            child: Text(
+            child: const Text(
               '生产日期',
               style: TextStyle(
                 fontFamily: 'Sitka Text',
                 fontSize: 14,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 4,
                   )
@@ -683,17 +683,17 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 76.0, start: 27.0),
             Pin(size: 19.0, middle: 0.6057),
-            child: Text(
+            child: const Text(
               '启用日期',
               style: TextStyle(
                 fontFamily: 'Sitka Text',
                 fontSize: 14,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 4,
                   )
@@ -705,17 +705,17 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 76.0, start: 27.0),
             Pin(size: 19.0, middle: 0.6754),
-            child: Text(
+            child: const Text(
               '到期日期',
               style: TextStyle(
                 fontFamily: 'Sitka Text',
                 fontSize: 14,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 4,
                   )
@@ -727,17 +727,17 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 76.0, start: 14.0),
             Pin(size: 18.0, middle: 0.805),
-            child: Text(
+            child: const Text(
               '标签',
               style: TextStyle(
                 fontFamily: 'Sitka Text',
                 fontSize: 14,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 4,
                   )
@@ -807,16 +807,16 @@ class XD extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.472, 0.61),
+            alignment: const Alignment(-0.472, 0.61),
             child: Container(
               width: 59.0,
               height: 23.0,
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -831,9 +831,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -848,9 +848,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -865,9 +865,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -882,9 +882,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -893,16 +893,16 @@ class XD extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.04, 0.61),
+            alignment: const Alignment(-0.04, 0.61),
             child: Container(
               width: 59.0,
               height: 23.0,
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -911,16 +911,16 @@ class XD extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.392, 0.61),
+            alignment: const Alignment(0.392, 0.61),
             child: Container(
               width: 59.0,
               height: 23.0,
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -935,9 +935,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -952,9 +952,9 @@ class XD extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -980,20 +980,20 @@ class XD extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => XDiPhone1212Pro5(),
+                  pageBuilder: () => const XDiPhone1212Pro5(),
                 ),
               ],
-              child: Text(
+              child: const Text(
                 '产品信息',
                 style: TextStyle(
                   fontFamily: 'Perpetua Titling MT',
                   fontSize: 30,
-                  color: const Color(0xff06241a),
+                  color: Color(0xff06241a),
                   fontWeight: FontWeight.w700,
                   height: 0.6666666666666666,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -1007,17 +1007,17 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 73.0, middle: 0.2544),
             Pin(size: 16.0, end: 122.0),
-            child: Text(
+            child: const Text(
               '哑光',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1e1e1e),
+                color: Color(0xff1e1e1e),
               ),
               textAlign: TextAlign.center,
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(-0.491, 0.606),
             child: SizedBox(
               width: 73.0,
@@ -1027,7 +1027,7 @@ class XD extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'PingFang SC',
                   fontSize: 12,
-                  color: const Color(0xff1e1e1e),
+                  color: Color(0xff1e1e1e),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -1036,12 +1036,12 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 73.0, middle: 0.4793),
             Pin(size: 16.0, end: 122.0),
-            child: Text(
+            child: const Text(
               '补水',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1e1e1e),
+                color: Color(0xff1e1e1e),
               ),
               textAlign: TextAlign.center,
             ),
@@ -1049,17 +1049,17 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 73.0, middle: 0.7041),
             Pin(size: 16.0, end: 122.0),
-            child: Text(
+            child: const Text(
               '水润',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1e1e1e),
+                color: Color(0xff1e1e1e),
               ),
               textAlign: TextAlign.center,
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(-0.041, 0.606),
             child: SizedBox(
               width: 73.0,
@@ -1069,13 +1069,13 @@ class XD extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'PingFang SC',
                   fontSize: 12,
-                  color: const Color(0xff1d1d1d),
+                  color: Color(0xff1d1d1d),
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(0.408, 0.606),
             child: SizedBox(
               width: 73.0,
@@ -1085,7 +1085,7 @@ class XD extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'PingFang SC',
                   fontSize: 12,
-                  color: const Color(0xff1d1d1d),
+                  color: Color(0xff1d1d1d),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -1094,12 +1094,12 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 73.0, end: 25.0),
             Pin(size: 16.0, middle: 0.803),
-            child: Text(
+            child: const Text(
               '自然',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1d1d1d),
+                color: Color(0xff1d1d1d),
               ),
               textAlign: TextAlign.center,
             ),
@@ -1107,18 +1107,18 @@ class XD extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 73.0, end: 25.0),
             Pin(size: 16.0, end: 122.0),
-            child: Text(
+            child: const Text(
               '亮白',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1d1d1d),
+                color: Color(0xff1d1d1d),
               ),
               textAlign: TextAlign.center,
             ),
           ),
           Align(
-            alignment: Alignment(-0.531, -0.398),
+            alignment: const Alignment(-0.531, -0.398),
             child: SizedBox(
               width: 44.0,
               height: 36.0,
@@ -1134,7 +1134,7 @@ class XD extends StatelessWidget {
                       child: Stack(
                         children: <Widget>[
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 7.8, 0.0),
+                            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 7.8, 0.0),
                             child: Stack(
                               children: <Widget>[
                                 SizedBox.expand(

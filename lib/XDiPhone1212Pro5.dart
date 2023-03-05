@@ -5,7 +5,7 @@ import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class XDiPhone1212Pro5 extends StatelessWidget {
-  XDiPhone1212Pro5({
+  const XDiPhone1212Pro5({
     Key? key,
   }) : super(key: key);
   @override
@@ -26,16 +26,16 @@ class XDiPhone1212Pro5 extends StatelessWidget {
           Pinned.fromPins(
             Pin(size: 127.0, middle: 0.4736),
             Pin(size: 47.0, start: 67.0),
-            child: Text(
+            child: const Text(
               '产品柜',
               style: TextStyle(
                 fontFamily: 'Microsoft Yi Baiti',
                 fontSize: 35,
-                color: const Color(0xff06241a),
+                color: Color(0xff06241a),
                 height: 0.5714285714285714,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   )
@@ -68,13 +68,13 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(size: 60.0, middle: 0.4886),
             Pin(size: 60.0, end: 19.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffff0d1d),
+              decoration: const BoxDecoration(
+                color: Color(0xffff0d1d),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -107,14 +107,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -123,21 +123,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.394, -0.547),
+            alignment: const Alignment(-0.394, -0.547),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 56.0,
               height: 55.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/2.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/2.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -146,21 +146,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.034, -0.556),
+            alignment: const Alignment(-0.034, -0.556),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 56.0,
               height: 57.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -169,21 +169,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.327, -0.554),
+            alignment: const Alignment(0.327, -0.554),
             child:
                 // Adobe XD layer: '449043874045663638' (shape)
                 Container(
               width: 56.0,
               height: 57.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage(''),
+                image: const DecorationImage(
+                  image: AssetImage(''),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -198,14 +198,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '327452647342344346' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/3.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/3.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -217,11 +217,11 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(start: 29.5, end: 26.5),
             Pin(size: 77.0, middle: 0.2011),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -233,11 +233,11 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(start: 29.5, end: 26.5),
             Pin(size: 77.0, middle: 0.3026),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -249,11 +249,11 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(start: 29.5, end: 26.5),
             Pin(size: 77.0, middle: 0.4062),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -265,11 +265,11 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(start: 29.5, end: 26.5),
             Pin(size: 77.0, middle: 0.5097),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -281,11 +281,11 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(start: 29.5, end: 26.5),
             Pin(size: 77.0, middle: 0.6131),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -297,11 +297,11 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(start: 29.5, end: 26.5),
             Pin(size: 77.0, middle: 0.7163),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -313,11 +313,11 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(start: 29.5, end: 26.5),
             Pin(size: 77.0, middle: 0.8196),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd0e7ef),
+              decoration: const BoxDecoration(
+                color: Color(0xffd0e7ef),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -397,19 +397,19 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                   transition: LinkTransition.Fade,
                   ease: Curves.easeOut,
                   duration: 0.3,
-                  pageBuilder: () => XD(),
+                  pageBuilder: () => const XD(),
                 ),
               ],
-              child: Text(
+              child: const Text(
                 '产品柜',
                 style: TextStyle(
                   fontFamily: 'Microsoft Yi Baiti',
                   fontSize: 35,
-                  color: const Color(0xff06241a),
+                  color: Color(0xff06241a),
                   height: 0.5714285714285714,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -446,14 +446,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -468,14 +468,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -490,14 +490,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -512,14 +512,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -534,14 +534,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -556,14 +556,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -572,21 +572,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.175, -0.353),
+            alignment: const Alignment(-0.175, -0.353),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -595,21 +595,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.175, -0.159),
+            alignment: const Alignment(-0.175, -0.159),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -618,21 +618,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.175, 0.036),
+            alignment: const Alignment(-0.175, 0.036),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -641,21 +641,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.175, 0.23),
+            alignment: const Alignment(-0.175, 0.23),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -664,21 +664,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.175, 0.424),
+            alignment: const Alignment(-0.175, 0.424),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -687,21 +687,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.175, 0.618),
+            alignment: const Alignment(-0.175, 0.618),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -710,21 +710,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.127, -0.353),
+            alignment: const Alignment(0.127, -0.353),
             child:
                 // Adobe XD layer: '327452647342344346' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/3.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/3.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -733,21 +733,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.127, -0.159),
+            alignment: const Alignment(0.127, -0.159),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -756,21 +756,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.127, 0.036),
+            alignment: const Alignment(0.127, 0.036),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -779,21 +779,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.127, 0.23),
+            alignment: const Alignment(0.127, 0.23),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -802,21 +802,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.127, 0.424),
+            alignment: const Alignment(0.127, 0.424),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -825,21 +825,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.127, 0.618),
+            alignment: const Alignment(0.127, 0.618),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -848,21 +848,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.43, -0.353),
+            alignment: const Alignment(0.43, -0.353),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -871,21 +871,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.43, -0.159),
+            alignment: const Alignment(0.43, -0.159),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -894,21 +894,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.43, 0.036),
+            alignment: const Alignment(0.43, 0.036),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -917,21 +917,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.43, 0.23),
+            alignment: const Alignment(0.43, 0.23),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -940,21 +940,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.43, 0.424),
+            alignment: const Alignment(0.43, 0.424),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -963,21 +963,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(0.43, 0.618),
+            alignment: const Alignment(0.43, 0.618),
             child:
                 // Adobe XD layer: '86818919415592160' (shape)
                 Container(
               width: 47.0,
               height: 29.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/1.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1007,14 +1007,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '86818919415592160' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage('assets/images/1.png'),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/1.png'),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1029,14 +1029,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '86818919415592160' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage('assets/images/1.png'),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/1.png'),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1051,14 +1051,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '327452647342344346' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage('assets/images/3.png'),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/3.png'),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1073,14 +1073,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '146036734416160729' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage('assets/images/4.png'),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/4.png'),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29000000),
+                                  color: Color(0x29000000),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1095,14 +1095,14 @@ class XDiPhone1212Pro5 extends StatelessWidget {
                               // Adobe XD layer: '410828845859064977' (shape)
                               Container(
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: const AssetImage('assets/images/2.png'),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/images/2.png'),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(21.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: const Color(0x29c21818),
+                                  color: Color(0x29c21818),
                                   offset: Offset(0, 3),
                                   blurRadius: 6,
                                 ),
@@ -1118,21 +1118,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.444, -0.357),
+            alignment: const Alignment(-0.444, -0.357),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/2.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/2.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1141,21 +1141,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.444, -0.162),
+            alignment: const Alignment(-0.444, -0.162),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/2.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/2.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1164,21 +1164,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.444, 0.035),
+            alignment: const Alignment(-0.444, 0.035),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/2.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/2.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1187,21 +1187,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.444, 0.232),
+            alignment: const Alignment(-0.444, 0.232),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/2.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/2.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1210,21 +1210,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.444, 0.428),
+            alignment: const Alignment(-0.444, 0.428),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/2.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/2.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1233,21 +1233,21 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment(-0.444, 0.624),
+            alignment: const Alignment(-0.444, 0.624),
             child:
                 // Adobe XD layer: '410828845859064977' (shape)
                 Container(
               width: 39.0,
               height: 38.0,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/2.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/2.png'),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1301,11 +1301,11 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             Pin(start: 27.0, end: 26.0),
             Pin(size: 9.0, end: 127.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xfff1fbff),
+              decoration: const BoxDecoration(
+                color: Color(0xfff1fbff),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1494,7 +1494,7 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(0.0),
+                  padding: const EdgeInsets.all(0.0),
                   child: SizedBox.expand(
                       child: SvgPicture.string(
                     _svg_y7wwfy,
@@ -1534,7 +1534,7 @@ class XDiPhone1212Pro5 extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(0.0),
+                  padding: const EdgeInsets.all(0.0),
                   child: SizedBox.expand(
                       child: SvgPicture.string(
                     _svg_tppz6,

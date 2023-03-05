@@ -13,7 +13,7 @@ class XD extends StatefulWidget {
 }
 
 class _XDState extends State<XD> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _showMessageInScaffold(String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -24,11 +24,11 @@ class _XDState extends State<XD> {
   final dbHelper = DatabaseHelper.instance; //启动数据库
 
   List<Products> products = [];
-  var map = new Map();
+  var map = {};
 
-  TextEditingController brandControl = new TextEditingController();
-  TextEditingController product_nameControl = new TextEditingController();
-  TextEditingController product_styleControl = new TextEditingController();
+  TextEditingController brandControl = TextEditingController();
+  TextEditingController product_nameControl = TextEditingController();
+  TextEditingController product_styleControl = TextEditingController();
 
 //   void initState() {
 // // TODO: implement initState
@@ -51,18 +51,18 @@ class _XDState extends State<XD> {
           Container(
             color: const Color(0xffedf2f2),
             // margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, -1.0),
-            margin: EdgeInsets.fromLTRB(0.0, 1.0, 0.0, 1.0),
+            margin: const EdgeInsets.fromLTRB(0.0, 1.0, 0.0, 1.0),
           ),
           Pinned.fromPins(
             Pin(start: 0.0, end: 0.0),
             Pin(size: 327.0, start: 0.0),
             //底图背景框设置
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment(0.0, 0.672),
                   end: Alignment(0.0, 1.0),
-                  colors: [const Color(0x3818a3b9), const Color(0x38ffffff)],
+                  colors: [Color(0x3818a3b9), Color(0x38ffffff)],
                   stops: [0.0, 1.0],
                 ),
                 borderRadius: BorderRadius.only(
@@ -71,7 +71,7 @@ class _XDState extends State<XD> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x09000000),
+                    color: Color(0x09000000),
                     offset: Offset(0, 8),
                     blurRadius: 8,
                   ),
@@ -83,13 +83,13 @@ class _XDState extends State<XD> {
             Pin(size: 189.0, start: -53.0),
             Pin(size: 181.0, start: 21.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x21def5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x21def5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x05000000),
+                    color: Color(0x05000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -103,13 +103,13 @@ class _XDState extends State<XD> {
             child: Transform.rotate(
               angle: -1.2566,
               child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x21def5f9),
+                decoration: const BoxDecoration(
+                  color: Color(0x21def5f9),
                   borderRadius:
                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0x05000000),
+                      color: Color(0x05000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     ),
@@ -122,13 +122,13 @@ class _XDState extends State<XD> {
             Pin(size: 185.0, start: -62.0),
             Pin(size: 180.0, start: 36.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x47def5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x47def5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0x0b000000),
+                    color: Color(0x0b000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -142,13 +142,13 @@ class _XDState extends State<XD> {
             child: Transform.rotate(
               angle: -1.2566,
               child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x47def5f9),
+                decoration: const BoxDecoration(
+                  color: Color(0x47def5f9),
                   borderRadius:
                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0x0b000000),
+                      color: Color(0x0b000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     ),
@@ -161,8 +161,8 @@ class _XDState extends State<XD> {
             Pin(size: 185.0, middle: 0.5561),
             Pin(size: 180.0, start: 80.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x2edef5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x2edef5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
               ),
@@ -172,8 +172,8 @@ class _XDState extends State<XD> {
             Pin(size: 185.0, middle: 0.5073),
             Pin(size: 180.0, start: 98.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x2edef5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x2edef5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
               ),
@@ -183,8 +183,8 @@ class _XDState extends State<XD> {
             Pin(size: 169.0, start: -64.0),
             Pin(size: 175.0, start: 51.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x52def5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x52def5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
               ),
@@ -196,8 +196,8 @@ class _XDState extends State<XD> {
             child: Transform.rotate(
               angle: -1.2566,
               child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x52def5f9),
+                decoration: const BoxDecoration(
+                  color: Color(0x52def5f9),
                   borderRadius:
                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 ),
@@ -208,8 +208,8 @@ class _XDState extends State<XD> {
             Pin(size: 169.0, start: -73.0),
             Pin(size: 164.0, start: 69.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0x52def5f9),
+              decoration: const BoxDecoration(
+                color: Color(0x52def5f9),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
               ),
@@ -221,8 +221,8 @@ class _XDState extends State<XD> {
             child: Transform.rotate(
               angle: -1.2566,
               child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x52def5f9),
+                decoration: const BoxDecoration(
+                  color: Color(0x52def5f9),
                   borderRadius:
                       BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 ),
@@ -237,9 +237,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 borderRadius: BorderRadius.circular(24.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -255,9 +255,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 borderRadius: BorderRadius.circular(24.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -273,9 +273,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 borderRadius: BorderRadius.circular(21.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -293,9 +293,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0x6ea7a7a7),
                 borderRadius: BorderRadius.circular(27.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x12066477),
+                    color: Color(0x12066477),
                     offset: Offset(0, 6),
                     blurRadius: 5,
                   ),
@@ -304,7 +304,7 @@ class _XDState extends State<XD> {
             ),
           ),
           //品牌文字修饰
-          Align(
+          const Align(
             alignment: Alignment(0.21, -0.619),
             child: SizedBox(
               width: 76.0,
@@ -314,11 +314,11 @@ class _XDState extends State<XD> {
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 14,
-                  color: const Color(0xff000000),
+                  color: Color(0xff000000),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -328,7 +328,7 @@ class _XDState extends State<XD> {
             ),
           ),
           //点击添加图片文字修饰
-          Align(
+          const Align(
             alignment: Alignment(-0.605, -0.457),
             child: SizedBox(
               width: 91.0,
@@ -338,10 +338,10 @@ class _XDState extends State<XD> {
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 14,
-                  color: const Color(0xffffffff),
+                  color: Color(0xffffffff),
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -354,19 +354,19 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 58.0, end: 27.0),
             Pin(size: 29.0, start: 69.0),
-            child: new RaisedButton(
+            child: RaisedButton(
               color: const Color.fromRGBO(184, 218, 223, 1.0),
               elevation: 0,
-              child: Text(
+              child: const Text(
                 '编辑',
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 23,
-                  color: const Color(0xff0a0a0a),
+                  color: Color(0xff0a0a0a),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -376,15 +376,15 @@ class _XDState extends State<XD> {
               ),
               onPressed: () {
                 String brand = brandControl.text;
-                String product_name = product_nameControl.text;
-                String product_style = product_styleControl.text;
-                _insert(brand, product_name, product_style);
+                String productName = product_nameControl.text;
+                String productStyle = product_styleControl.text;
+                _insert(brand, productName, productStyle);
               },
             ),
           ),
 
           //产品名文字修饰
-          Align(
+          const Align(
             alignment: Alignment(0.102, -0.457),
             child: SizedBox(
               width: 76.0,
@@ -394,11 +394,11 @@ class _XDState extends State<XD> {
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 14,
-                  color: const Color(0xff000000),
+                  color: Color(0xff000000),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -410,7 +410,7 @@ class _XDState extends State<XD> {
           ),
 
           //生产日期那一行
-          Align(
+          const Align(
             alignment: Alignment(0.324, 0.035),
             child: SizedBox(
               width: 177.0,
@@ -420,11 +420,11 @@ class _XDState extends State<XD> {
                   style: TextStyle(
                     fontFamily: 'Arial',
                     fontSize: 14,
-                    color: const Color(0xff818080),
+                    color: Color(0xff818080),
                     letterSpacing: 2.8000000000000003,
                     shadows: [
                       Shadow(
-                        color: const Color(0x29000000),
+                        color: Color(0x29000000),
                         // color: Colors.red,
                         offset: Offset(0, 3),
                         blurRadius: 6,
@@ -485,7 +485,7 @@ class _XDState extends State<XD> {
             ),
           ),
           //启用日期那一行
-          Align(
+          const Align(
             alignment: Alignment(0.324, 0.168),
             child: SizedBox(
               width: 177.0,
@@ -495,11 +495,11 @@ class _XDState extends State<XD> {
                   style: TextStyle(
                     fontFamily: 'Arial',
                     fontSize: 14,
-                    color: const Color(0xff818080),
+                    color: Color(0xff818080),
                     letterSpacing: 2.8000000000000003,
                     shadows: [
                       Shadow(
-                        color: const Color(0x29000000),
+                        color: Color(0x29000000),
                         offset: Offset(0, 3),
                         blurRadius: 6,
                       )
@@ -559,7 +559,7 @@ class _XDState extends State<XD> {
             ),
           ),
           //到期日期那一行
-          Align(
+          const Align(
             alignment: Alignment(0.324, 0.304),
             child: SizedBox(
               width: 177.0,
@@ -569,11 +569,11 @@ class _XDState extends State<XD> {
                   style: TextStyle(
                     fontFamily: 'Arial',
                     fontSize: 14,
-                    color: const Color(0xff818080),
+                    color: Color(0xff818080),
                     letterSpacing: 2.8000000000000003,
                     shadows: [
                       Shadow(
-                        color: const Color(0x29000000),
+                        color: Color(0x29000000),
                         offset: Offset(0, 3),
                         blurRadius: 6,
                       )
@@ -633,7 +633,7 @@ class _XDState extends State<XD> {
             ),
           ),
           //产品类型文字修饰
-          Align(
+          const Align(
             alignment: Alignment(0.146, -0.299),
             child: SizedBox(
               width: 76.0,
@@ -643,11 +643,11 @@ class _XDState extends State<XD> {
                 style: TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 14,
-                  color: const Color(0xff000000),
+                  color: Color(0xff000000),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -661,17 +661,17 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 76.0, start: 21.0),
             Pin(size: 19.0, middle: 0.5224),
-            child: Text(
+            child: const Text(
               '生产日期',
               style: TextStyle(
                 fontFamily: 'Sitka Text',
                 fontSize: 14,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 4,
                   )
@@ -684,17 +684,17 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 76.0, start: 20.0),
             Pin(size: 19.0, middle: 0.5903),
-            child: Text(
+            child: const Text(
               '启用日期',
               style: TextStyle(
                 fontFamily: 'Sitka Text',
                 fontSize: 14,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 4,
                   )
@@ -707,17 +707,17 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 76.0, start: 20.0),
             Pin(size: 19.0, middle: 0.6582),
-            child: Text(
+            child: const Text(
               '到期日期',
               style: TextStyle(
                 fontFamily: 'Sitka Text',
                 fontSize: 14,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 4,
                   )
@@ -730,17 +730,17 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 76.0, start: 6.0),
             Pin(size: 18.0, middle: 0.7845),
-            child: Text(
+            child: const Text(
               '标签',
               style: TextStyle(
                 fontFamily: 'Sitka Text',
                 fontSize: 14,
-                color: const Color(0xff000000),
+                color: Color(0xff000000),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w700,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 4,
                   )
@@ -760,23 +760,23 @@ class _XDState extends State<XD> {
                 onChanged: (value) {
                   //品牌
                   setState(() {
-                    this.brandControl.text = value;
+                    brandControl.text = value;
                     print(brandControl);
                   });
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "请输入品牌名",
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
                 ),
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 12,
-                  color: const Color(0xff818080),
+                  color: Color(0xff818080),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
@@ -795,33 +795,33 @@ class _XDState extends State<XD> {
             Pin(size: 173.0, end: 27.0),
             Pin(size: 28.0, middle: 0.3051),
             child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(width: 1.0, color: const Color(0xff000000)),
+              ),
               child: TextField(
                 controller: product_nameControl,
                 onChanged: (value) {
                   //产品名
                   setState(() {
-                    this.product_nameControl.text = value;
+                    product_nameControl.text = value;
                   });
                 },
-                decoration: InputDecoration(hintText: "请输入产品名"),
-                style: TextStyle(
+                decoration: const InputDecoration(hintText: "请输入产品名"),
+                style: const TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 12,
-                  color: const Color(0xff818080),
+                  color: Color(0xff818080),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
                   ],
                 ),
                 textAlign: TextAlign.center,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(width: 1.0, color: const Color(0xff000000)),
               ),
             ),
           ),
@@ -830,36 +830,36 @@ class _XDState extends State<XD> {
             Pin(size: 173.0, end: 27.0),
             Pin(size: 28.0, middle: 0.3873),
             child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(width: 1.0, color: const Color(0xff000000)),
+              ),
               child: TextField(
                 controller: product_styleControl,
                 onChanged: (value) {
                   //产品类型
                   setState(() {
-                    this.product_styleControl.text = value;
+                    product_styleControl.text = value;
                   });
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: "请输入产品类型",
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0)),
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Perpetua',
                   fontSize: 12,
-                  color: const Color(0xff818080),
+                  color: Color(0xff818080),
                   fontWeight: FontWeight.w700,
                   shadows: [
                     Shadow(
-                      color: const Color(0x29000000),
+                      color: Color(0x29000000),
                       offset: Offset(0, 3),
                       blurRadius: 6,
                     )
                   ],
                 ),
                 textAlign: TextAlign.center,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(width: 1.0, color: const Color(0xff000000)),
               ),
             ),
           ),
@@ -896,16 +896,16 @@ class _XDState extends State<XD> {
           ),
           //标签盒子修饰
           Align(
-            alignment: Alignment(-0.541, 0.569),
+            alignment: const Alignment(-0.541, 0.569),
             child: Container(
               width: 59.0,
               height: 23.0,
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -920,9 +920,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -937,9 +937,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -954,9 +954,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -971,9 +971,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -982,16 +982,16 @@ class _XDState extends State<XD> {
             ),
           ),
           Align(
-            alignment: Alignment(-0.082, 0.569),
+            alignment: const Alignment(-0.082, 0.569),
             child: Container(
               width: 59.0,
               height: 23.0,
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1000,16 +1000,16 @@ class _XDState extends State<XD> {
             ),
           ),
           Align(
-            alignment: Alignment(0.378, 0.569),
+            alignment: const Alignment(0.378, 0.569),
             child: Container(
               width: 59.0,
               height: 23.0,
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1024,9 +1024,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1041,9 +1041,9 @@ class _XDState extends State<XD> {
               decoration: BoxDecoration(
                 color: const Color(0xffedf2f2),
                 borderRadius: BorderRadius.circular(7.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   ),
@@ -1068,7 +1068,7 @@ class _XDState extends State<XD> {
                 // Navigator.of(context).pop();
                 Navigator.push(
                   context,
-                  new MaterialPageRoute(builder: (context) => new DataBase()),
+                  MaterialPageRoute(builder: (context) => const DataBase()),
                 );
               },
             ),
@@ -1077,17 +1077,17 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 131.0, middle: 0.5251),
             Pin(size: 40.0, start: 61.0),
-            child: Text(
+            child: const Text(
               '产品信息',
               style: TextStyle(
                 fontFamily: 'Perpetua Titling MT',
                 fontSize: 30,
-                color: const Color(0xff06241a),
+                color: Color(0xff06241a),
                 fontWeight: FontWeight.w700,
                 height: 0.6666666666666666,
                 shadows: [
                   Shadow(
-                    color: const Color(0x29000000),
+                    color: Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 6,
                   )
@@ -1101,17 +1101,17 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 73.0, middle: 0.2177),
             Pin(size: 16.0, end: 143.0),
-            child: Text(
+            child: const Text(
               '哑光',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1e1e1e),
+                color: Color(0xff1e1e1e),
               ),
               textAlign: TextAlign.center,
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(-0.565, 0.565),
             child: SizedBox(
               width: 73.0,
@@ -1121,7 +1121,7 @@ class _XDState extends State<XD> {
                 style: TextStyle(
                   fontFamily: 'PingFang SC',
                   fontSize: 12,
-                  color: const Color(0xff1e1e1e),
+                  color: Color(0xff1e1e1e),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -1130,12 +1130,12 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 73.0, middle: 0.4574),
             Pin(size: 16.0, end: 143.0),
-            child: Text(
+            child: const Text(
               '补水',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1e1e1e),
+                color: Color(0xff1e1e1e),
               ),
               textAlign: TextAlign.center,
             ),
@@ -1143,17 +1143,17 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 73.0, middle: 0.6972),
             Pin(size: 16.0, end: 143.0),
-            child: Text(
+            child: const Text(
               '水润',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1e1e1e),
+                color: Color(0xff1e1e1e),
               ),
               textAlign: TextAlign.center,
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(-0.085, 0.565),
             child: SizedBox(
               width: 73.0,
@@ -1163,13 +1163,13 @@ class _XDState extends State<XD> {
                 style: TextStyle(
                   fontFamily: 'PingFang SC',
                   fontSize: 12,
-                  color: const Color(0xff1d1d1d),
+                  color: Color(0xff1d1d1d),
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
           ),
-          Align(
+          const Align(
             alignment: Alignment(0.394, 0.565),
             child: SizedBox(
               width: 73.0,
@@ -1179,7 +1179,7 @@ class _XDState extends State<XD> {
                 style: TextStyle(
                   fontFamily: 'PingFang SC',
                   fontSize: 12,
-                  color: const Color(0xff1d1d1d),
+                  color: Color(0xff1d1d1d),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -1188,12 +1188,12 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 73.0, end: 20.0),
             Pin(size: 16.0, middle: 0.7826),
-            child: Text(
+            child: const Text(
               '自然',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1d1d1d),
+                color: Color(0xff1d1d1d),
               ),
               textAlign: TextAlign.center,
             ),
@@ -1201,19 +1201,19 @@ class _XDState extends State<XD> {
           Pinned.fromPins(
             Pin(size: 73.0, end: 20.0),
             Pin(size: 16.0, end: 143.0),
-            child: Text(
+            child: const Text(
               '亮白',
               style: TextStyle(
                 fontFamily: 'PingFang SC',
                 fontSize: 12,
-                color: const Color(0xff1d1d1d),
+                color: Color(0xff1d1d1d),
               ),
               textAlign: TextAlign.center,
             ),
           ),
           //添加图片图标修饰
           Align(
-            alignment: Alignment(-0.555, -0.413),
+            alignment: const Alignment(-0.555, -0.413),
             child: SizedBox(
               width: 44.0,
               height: 36.0,
@@ -1229,7 +1229,7 @@ class _XDState extends State<XD> {
                       child: Stack(
                         children: <Widget>[
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 7.8, 0.0),
+                            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 7.8, 0.0),
                             child: Stack(
                               children: <Widget>[
                                 SizedBox.expand(
@@ -1291,12 +1291,12 @@ class _XDState extends State<XD> {
     );
   }
 
-  void _insert(brand, product_name, product_style) async {
+  void _insert(brand, productName, productStyle) async {
     // row to insert
     Map<String, dynamic> row = {
       DatabaseHelper.columnBrand: brand,
-      DatabaseHelper.columnProductName: product_name,
-      DatabaseHelper.columnProductStyle: product_style
+      DatabaseHelper.columnProductName: productName,
+      DatabaseHelper.columnProductStyle: productStyle
     };
     Products products = Products.fromMap(row);
     final id = await dbHelper.insert(products);

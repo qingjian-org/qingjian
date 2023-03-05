@@ -436,7 +436,7 @@ class _ProductInfoPageState extends State<ProductInfoPage>
             Pin(size: 181.0, start: 21.0),
             child: Container(
               decoration: const BoxDecoration(
-                color: Color(0x21def5f9),
+                color: Color.fromARGB(32, 9, 201, 235),
                 borderRadius:
                     BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
                 boxShadow: [

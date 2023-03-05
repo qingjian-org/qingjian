@@ -240,6 +240,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.7.0"
+  multi_image_picker:
+    dependency: "direct main"
+    description:
+      name: multi_image_picker
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.8.01"
   path:
     dependency: transitive
     description:

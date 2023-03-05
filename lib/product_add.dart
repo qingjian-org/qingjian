@@ -775,6 +775,7 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                         _restorableProduceDatePickerRouteFuture
                                             .present();
                                       },
+                                      style: const ButtonStyle(),
                                       child: SizedBox(
                                         width: 177.0,
                                         height: 19.0,
@@ -844,7 +845,6 @@ class _ProductAddState extends State<ProductAddPage> with RestorationMixin {
                                           // ),
                                         ),
                                       ),
-                                      style: ButtonStyle(),
                                     ),
                                   )),
                             ],

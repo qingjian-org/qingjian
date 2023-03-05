@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qingjian/main.dart';
 
 class MyPage extends StatefulWidget {
   @override

@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'Products.dart';
 import 'product_add.dart';
 import 'DatabaseHelper.dart';
-import 'package:adobe_xd/pinned.dart';
 import 'background.dart';
 
 class MakeUpTable extends StatefulWidget {

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 // import 'package:qingjian/test.dart';
 
-import 'makeup.dart';
 import 'makeup_table.dart';
 import 'my.dart';
-import 'community.dart';
 import 'product_info.dart';
 import 'test.dart';
-import 'ceshi.dart';
+import 'publish_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,11 +35,13 @@ class _MyHomePageState extends State<MyHomePage> {
         icon: Icon(Icons.connect_without_contact), label: '社区'),
     const BottomNavigationBarItem(icon: Icon(Icons.account_box), label: '我的')
   ];
+
 // 第二行注释
   final bodyList = [
     MakeUpTable(),
     const ProductInfoPage(restorationId: 'main'),
     // CommunityPages(),
+    const PublishPage(),
     const DataBase(),
     MyPage()
   ];

@@ -1,10 +1,8 @@
 // ignore_for_file: unnecessary_new
 
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import 'package:gzx_dropdown_menu/gzx_dropdown_menu.dart';
 import 'DatabaseHelper.dart';
 import 'Products.dart';
 
@@ -36,7 +34,7 @@ class _CommunityPageState extends State<CommunityPages> {
                     height: 28,
                     // ignore: sort_child_properties_last
                     child: CompositedTransformTarget(
-                      link: this.layerLink,
+                      link: layerLink,
                       child: TextFormField(
                         focusNode: focusNodeBrand,
                         onChanged: (text) {
@@ -234,7 +232,7 @@ class _CommunityPageState extends State<CommunityPages> {
   List<Products> products = [];
   List<Products> productsByName = [];
 
-  TextEditingController _queryController = TextEditingController();
+  final TextEditingController _queryController = TextEditingController();
   TextEditingController brandControl = new TextEditingController();
   TextEditingController product_nameControl = new TextEditingController();
   TextEditingController product_styleControl = new TextEditingController();
